@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Pricings } from "../../locales/PricingInfo";
+import PropTypes from 'prop-types';
 import {
   GoogleMap,
   LoadScript,
@@ -92,8 +93,8 @@ const PricingDetail = () => {
       router.query.tab === "0"
         ? pricing.price_negtaldaa
         : router.query.tab === "1"
-        ? pricing.price_hoyurtaldaa
-        : pricing.price_udruur;
+          ? pricing.price_hoyurtaldaa
+          : pricing.price_udruur;
 
     setFormData({
       ...formData,
@@ -196,8 +197,8 @@ const PricingDetail = () => {
                   {router.query.tab === "0"
                     ? pricing.price_negtaldaa
                     : router.query.tab === "1"
-                    ? pricing.price_hoyurtaldaa
-                    : pricing.price_udruur}
+                      ? pricing.price_hoyurtaldaa
+                      : pricing.price_udruur}
                   ₮
                 </p>
                 <p className="text-gray-700 mb-4 leading-relaxed">
@@ -298,6 +299,7 @@ const PricingDetail = () => {
                     Аялагчийн нэр латин үсэг байх хэрэгтэй (A-Z)
                   </p>
                 </div>
+
                 <FormControl
                   type="date"
                   placeholder="Order Date"
@@ -312,6 +314,8 @@ const PricingDetail = () => {
                   value={formData.orderTime}
                   onChange={handleChange}
                 />
+
+
 
                 <div className="md:col-span-2">
                   <p className="text-[22px] font-semibold leading-[28px] text-dark-blue mt-6">
@@ -384,50 +388,99 @@ const PricingDetail = () => {
 
 const FormControl = ({
   type = "text",
-  placeholder,
+  placeholder = "",
   name,
   value,
   onChange,
   options = [],
-  rows,
-}) => (
-  <div>
-    {type === "select" ? (
-      <select
-        name={name}
-        value={value}
-        onChange={onChange}
-        className="w-full px-3 py-4 border rounded-xl focus:outline-none focus:border-blue-500"
-        required
-      >
-        <option value="">{placeholder}</option>
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-    ) : type === "textarea" ? (
-      <textarea
-        name={name}
-        value={value}
-        onChange={onChange}
-        className="w-full px-3 py-4 border rounded-xl focus:outline-none focus:border-blue-500"
-        rows={rows}
-        placeholder={placeholder}
-      />
-    ) : (
-      <input
-        type={type}
-        name={name}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        className="w-full px-3 py-4 border rounded-xl focus:outline-none focus:border-blue-500"
-        required
-      />
-    )}
-  </div>
-);
+  rows = 4,
+  label = "",
+  checked = false,
+  onBlur,
+}) => {
+  const commonProps = {
+    name,
+    value,
+    onChange,
+    onBlur,
+    className: "w-full px-3 py-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500",
+  };
+
+  return (
+    <div className="mb-4">
+      {label && <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-1">{label}</label>}
+      {type === "select" ? (
+        <select
+          {...commonProps}
+          className={`${commonProps.className} text-gray-900`}
+          required
+        >
+          <option value="" disabled>{placeholder}</option>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      ) : type === "textarea" ? (
+        <textarea
+          {...commonProps}
+          placeholder={placeholder}
+          rows={rows}
+        />
+      ) : type === "checkbox" ? (
+        <div className="flex items-center">
+          <input
+            type="checkbox"
+            name={name}
+            checked={checked}
+            onChange={onChange}
+            className="mr-2"
+            {...commonProps}
+          />
+          <span>{placeholder}</span>
+        </div>
+      ) : type === "radio" ? (
+        <div className="flex items-center">
+          <input
+            type="radio"
+            name={name}
+            value={value}
+            checked={checked}
+            onChange={onChange}
+            className="mr-2"
+            {...commonProps}
+          />
+          <span>{placeholder}</span>
+        </div>
+      ) : (
+        <input
+          type={type}
+          {...commonProps}
+          placeholder={placeholder}
+        />
+      )}
+    </div>
+  );
+};
+
+FormControl.propTypes = {
+  type: PropTypes.oneOf(['text', 'email', 'number', 'password', 'date', 'time', 'textarea', 'select', 'checkbox', 'radio']),
+  placeholder: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ),
+  rows: PropTypes.number,
+  label: PropTypes.string,
+  checked: PropTypes.bool,
+  onBlur: PropTypes.func,
+};
+
 
 export default PricingDetail;
