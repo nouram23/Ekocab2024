@@ -1,4 +1,5 @@
 import bilguunerh from "../Assets/bilguunerh.png";
+import myagmardorj from "../Assets/myagmardorj.png";
 import usukh6ayar from "../Assets/eazy.png";
 import ariunerdene from "../Assets/ariunerdene.png";
 import random from "../Assets/random.png";
@@ -10,8 +11,15 @@ const TeamLocale = [
         members: [
             {
                 name: 'М.Билгүүн-Эрх',
-                role: 'Үүсгэн байгуулагч',
+                role: 'Founder, Хөгжүүлэгч',
                 image: `${bilguunerh.src}`,
+                instagram: 'https://www.instagram.com/bilguunerh/',
+                icon: `${instagram.src}`,
+            },
+            {
+                name: 'Н.Мягмардорж',
+                role: 'Зөвлөх',
+                image: `${myagmardorj.src}`,
                 instagram: 'https://www.instagram.com/bilguunerh/',
                 icon: `${instagram.src}`,
             },
@@ -24,7 +32,7 @@ const TeamLocale = [
             },
             {
                 name: 'Г.Өсөхбаяр',
-                role: 'Ерөнхий эрхлэгч',
+                role: 'Ерөнхий хөтөч',
                 image: `${usukh6ayar.src}`,
                 instagram: 'https://www.instagram.com/usukh6ayar/',
                 icon: `${instagram.src}`,

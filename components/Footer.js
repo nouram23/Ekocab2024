@@ -16,14 +16,20 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-[#292929] text-white py-5">
-      <div className="container mx-auto">
+    <footer className="bg-gray-800 text-white py-6">
+      <div className="container mx-auto px-4">
         <div className="flex flex-wrap justify-between items-center">
-          <div className="w-full md:w-1/3 text-center md:text-left">
-            {/* <Image src={EkocabLogo} width={150} alt="Ekocab Logo" /> */}
-            <p className="font-light text-sm text-white">
+          <div className="w-full md:w-1/3 text-center md:text-left mb-4 md:mb-0">
+            <p className="font-light text-sm">
               &copy; 2024 EkoCab Service. All Rights Reserved.
             </p>
+          </div>
+          <div className="w-full md:w-1/3 text-center md:text-right">
+            <Link href="/about">
+              <p className="text-blue-400 hover:text-blue-300 text-sm font-normal transition-colors duration-300">
+                Бидний тухай
+              </p>
+            </Link>
           </div>
         </div>
       </div>
