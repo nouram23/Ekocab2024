@@ -18,7 +18,7 @@ const ImageSlider = () => {
       class1:
         "bg-gradient-to-l from-transparent lg:to-black/40 to-black/20 items-end",
       class2: "text-center",
-      class3: "border-gray-600 text-gray-800 hover:bg-gray-200",
+      class3: "border-gray-600 text-gray-800",
       class4: "text-gray-200 text-center",
       class5: "font-medium text-gray-800",
       text0: `${t.text0.slide2}`,
@@ -32,7 +32,7 @@ const ImageSlider = () => {
       class1:
         "bg-gradient-to-l from-transparent lg:to-black/40 to-black/20 items-end",
       class2: "text-center",
-      class3: "border-gray-600 text-gray-800 hover:bg-gray-200",
+      class3: "border-gray-600 text-gray-800",
       class4: "text-gray-200 text-center",
       class5: "font-medium text-gray-800",
       text0: `${t.text0.slide3}`,
@@ -75,11 +75,10 @@ const ImageSlider = () => {
                     <p className="text-[#ffff]">{slideImage.text2}</p>
                   </div>
                   <div
-                    className={`transition-transform duration-300 ease-in-out mt-5 w-64 p-3 flex items-center justify-center rounded-full cursor-pointer ${slideImage.class3} 
-    hover:bg-white hover:shadow-lg transform hover:scale-105 active:scale-95 active:bg-gray-200`}
+                    className={`transition-transform duration-300 ease-in-out mt-5 w-64 p-3 flex items-center justify-center rounded-full cursor-pointer ${slideImage.class3} transform hover:scale-105 active:scale-95 active:bg-gray-200`}
                     onClick={() => router.push(slideImage.url)}
                   >
-                    <p className="text-sm md:text-base font-semibold text-white">
+                    <p className="text-sm font-semibold text-white">
                       {slideImage.text4}
                     </p>
                     <svg

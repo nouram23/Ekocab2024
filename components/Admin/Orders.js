@@ -25,7 +25,7 @@ const Orders = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch("http://localhost:4000/api/v1/order");
+      const response = await fetch("https://expressjs-17jy.onrender.com/api/v1/order");
       const data = await response.json();
       // Sort the orders by createdAt in descending order
       const sortedOrders = data.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));

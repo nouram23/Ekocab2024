@@ -121,7 +121,7 @@ const PricingDetail = () => {
     }
     console.log(formData);
     try {
-      const response = await fetch("http://localhost:4000/api/v1/order", {
+      const response = await fetch("https://expressjs-17jy.onrender.com/api/v1/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
