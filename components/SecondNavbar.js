@@ -100,18 +100,6 @@ const SecondNavbar = () => {
               {t.about}
             </div>
           </Link>
-          <Link href="/admin">
-            <div
-              onClick={() => setShowSidebar(!showSidebar)}
-              className={`rounded-lg text-lg font-semibold leading-7 p-2 hover:bg-gray-50 ${
-                router.pathname == "/admin"
-                  ? "text-blue-600"
-                  : "text-black"
-              }`}
-            >
-              {t.admin}
-            </div>
-          </Link>
           <a href="tel:+97672440102">
             <div
               onClick={() => setShowSidebar(!showSidebar)}
