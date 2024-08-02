@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Orders from '../components/Admin/Orders'; // Import the Orders component
-import Drivers from '../components/Admin/Drivers'; // Import the Drivers component
+import Orders from '../../components/Admin/Orders'; // Import the Orders component
+import Drivers from '../../components/Admin/Drivers'; // Import the Drivers component
 import Stats from '@/components/Admin/Stats';
 
 const Admin = () => {

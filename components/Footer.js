@@ -8,7 +8,7 @@ const Footer = () => {
   const router = useRouter();
 
   // Check if current route is /admin
-  const isAdminRoute = router.pathname === "/admin";
+  const isAdminRoute = router.pathname === "/dashboard/admin";
 
   // Render null if the current route is /admin
   if (isAdminRoute) {
