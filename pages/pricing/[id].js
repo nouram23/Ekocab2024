@@ -1,14 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Pricings } from "../../locales/PricingInfo";
+import PropTypes from 'prop-types';
 import {
   GoogleMap,
   LoadScript,
   Marker,
   Autocomplete,
 } from "@react-google-maps/api";
-import { Snackbar, Button, TextField, Alert } from "@mui/material";
-import { useForm, Controller } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const containerStyle = {
   width: "100%",
@@ -28,39 +29,38 @@ const PricingDetail = () => {
   const pricings = Pricings[locale].types;
   const pricing = pricings[id];
 
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    phoneNumber: "",
+    email: "",
+    orderDate: "",
+    orderTime: "",
+    note: "",
+    latitude: "",
+    longitude: "",
+    carType: "",
+    price: "",
+    createdAt: new Date().toISOString(),
+    modifiedAt: new Date().toISOString(),
+  });
+
   const [marker, setMarker] = useState(null);
   const [currentLocation, setCurrentLocation] = useState(initialCenter);
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
   const mapRef = useRef(null);
   const autocompleteRef = useRef(null);
 
-  const { control, handleSubmit, setValue, getValues, formState: { errors } } = useForm({
-    defaultValues: {
-      firstname: "",
-      lastname: "",
-      phoneNumber: "",
-      email: "",
-      orderDate: "",
-      orderTime: "",
-      note: "",
-      latitude: "",
-      longitude: "",
-      carType: "",
-      price: "",
-      createdAt: new Date().toISOString(),
-      modifiedAt: new Date().toISOString(),
-    }
-  });
-
   useEffect(() => {
     if (selectedPlace) {
-      setValue("latitude", selectedPlace.lat);
-      setValue("longitude", selectedPlace.lng);
+      setFormData({
+        ...formData,
+        latitude: selectedPlace.lat,
+        longitude: selectedPlace.lng,
+      });
     }
-  }, [selectedPlace, setValue]);
+  }, [selectedPlace]);
 
   const onPlaceChanged = () => {
     const place = autocompleteRef.current.getPlace();
@@ -78,46 +78,69 @@ const PricingDetail = () => {
   const handleMapClick = (event) => {
     const newMarker = {
       lat: event.latLng.lat(),
-      lng: event.latLng.lng(), 
+      lng: event.latLng.lng(),
     };
     setMarker(newMarker);
     setSelectedPlace(newMarker);
   };
 
-  const onSubmit = async (data) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    const carType = ["firstname", "lastname", "phoneNumber", "email"].includes(name)
+      ? pricing.mark
+      : formData.carType;
+    const price =
+      router.query.tab === "0"
+        ? pricing.price_negtaldaa
+        : router.query.tab === "1"
+          ? pricing.price_hoyurtaldaa
+          : pricing.price_udruur;
+
+    setFormData({
+      ...formData,
+      [name]: value,
+      carType: carType,
+      price: price,
+    });
+  };
+
+  const validateForm = () => {
     const requiredFields = ["latitude", "longitude", "firstname", "lastname", "phoneNumber", "email", "orderDate", "orderTime", "note"];
 
     for (const field of requiredFields) {
-      if (!data[field]) {
-        setSnackbarMessage(`${field} талбар дутуу байна.`);
-        setSnackbarOpen(true);
-        return;
+      if (!formData[field]) {
+        toast.warn(`${field} талбар дутуу байна.`);
+        return false;
       }
     }
+    return true;
+  };
 
-    console.log(data);
+  const handleSubmit = async () => {
+    if (!validateForm()) {
+      return;
+    }
+    console.log(formData);
     try {
       const response = await fetch("https://expressjs-17jy.onrender.com/api/v1/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(formData),
       });
 
-      const result = await response.json();
-      console.log(result, "data");
-      if (result.success) {
-        setSnackbarMessage("Захиалга амжилттай баталгаажлаа!");
-        setSnackbarOpen(true);
+      const data = await response.json();
+      console.log(data, "data");
+      if (data.success) {
+        toast.success("Захиалга амжилттай баталгаажлаа!");
         setFormSubmitted(true);
-        console.log("Form submitted:", data);
+        console.log("Form submitted:", formData);
       } else {
         throw new Error("Server returned error status");
       }
     } catch (error) {
-      setSnackbarMessage("Сервэрт алдаа гарлаа.");
-      setSnackbarOpen(true);
+      toast.error("Сервэрт алдаа гарлаа.");
     }
   };
 
@@ -151,14 +174,12 @@ const PricingDetail = () => {
             <p className="text-lg mb-6 text-gray-600">
               Бид таны захиалгыг хүлээн авсан бөгөөд удахгүй холбогдох болно.
             </p>
-            <Button
+            <button
               onClick={handleBackToHome}
-              variant="contained"
-              color="primary"
-              size="large"
+              className="bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-6 rounded-full shadow-md hover:shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 font-bold border border-transparent hover:border-blue-400"
             >
               Баярлалаа
-            </Button>
+            </button>
           </div>
         ) : (
           <>
@@ -176,8 +197,8 @@ const PricingDetail = () => {
                   {router.query.tab === "0"
                     ? pricing.price_negtaldaa
                     : router.query.tab === "1"
-                    ? pricing.price_hoyurtaldaa
-                    : pricing.price_udruur}
+                      ? pricing.price_hoyurtaldaa
+                      : pricing.price_udruur}
                   ₮
                 </p>
                 <p className="text-gray-700 mb-4 leading-relaxed">
@@ -214,11 +235,10 @@ const PricingDetail = () => {
                         }
                         onPlaceChanged={onPlaceChanged}
                       >
-                        <TextField
-                          variant="outlined"
+                        <input
+                          type="text"
                           placeholder="Хаяг хайх..."
-                          fullWidth
-                          size="small"
+                          className="border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all duration-150 w-full sm:w-full lg:w-full"
                           style={{
                             padding: "8px",
                             fontSize: "13px",
@@ -279,38 +299,23 @@ const PricingDetail = () => {
                     Аялагчийн нэр латин үсэг байх хэрэгтэй (A-Z)
                   </p>
                 </div>
-                <Controller
+
+                <FormControl
+                  type="date"
+                  placeholder="Order Date"
                   name="orderDate"
-                  control={control}
-                  render={({ field }) => (
-                    <TextField
-                      type="date"
-                      variant="outlined"
-                      fullWidth
-                      size="small"
-                      margin="normal"
-                      {...field}
-                      error={!!errors.orderDate}
-                      helperText={errors.orderDate ? 'Order date is required' : ''}
-                    />
-                  )}
+                  value={formData.orderDate}
+                  onChange={handleChange}
                 />
-                <Controller
+                <FormControl
+                  type="time"
+                  placeholder="Нислэгийн цаг"
                   name="orderTime"
-                  control={control}
-                  render={({ field }) => (
-                    <TextField
-                      type="time"
-                      variant="outlined"
-                      fullWidth
-                      size="small"
-                      margin="normal"
-                      {...field}
-                      error={!!errors.orderTime}
-                      helperText={errors.orderTime ? 'Order time is required' : ''}
-                    />
-                  )}
+                  value={formData.orderTime}
+                  onChange={handleChange}
                 />
+
+
 
                 <div className="md:col-span-2">
                   <p className="text-[22px] font-semibold leading-[28px] text-dark-blue mt-6">
@@ -320,69 +325,29 @@ const PricingDetail = () => {
                     Аялагчийн нэр латин үсэг байх хэрэгтэй (A-Z)
                   </p>
                 </div>
-                <Controller
+                <FormControl
+                  placeholder="Овог"
                   name="firstname"
-                  control={control}
-                  render={({ field }) => (
-                    <TextField
-                      variant="outlined"
-                      fullWidth
-                      size="small"
-                      margin="normal"
-                      label="Овог"
-                      {...field}
-                      error={!!errors.firstname}
-                      helperText={errors.firstname ? 'Firstname is required' : ''}
-                    />
-                  )}
+                  value={formData.firstname}
+                  onChange={handleChange}
                 />
-                <Controller
+                <FormControl
+                  placeholder="Нэр"
                   name="lastname"
-                  control={control}
-                  render={({ field }) => (
-                    <TextField
-                      variant="outlined"
-                      fullWidth
-                      size="small"
-                      margin="normal"
-                      label="Нэр"
-                      {...field}
-                      error={!!errors.lastname}
-                      helperText={errors.lastname ? 'Lastname is required' : ''}
-                    />
-                  )}
+                  value={formData.lastname}
+                  onChange={handleChange}
                 />
-                <Controller
+                <FormControl
+                  placeholder="Утасны дугаар"
                   name="phoneNumber"
-                  control={control}
-                  render={({ field }) => (
-                    <TextField
-                      variant="outlined"
-                      fullWidth
-                      size="small"
-                      margin="normal"
-                      label="Утасны дугаар"
-                      {...field}
-                      error={!!errors.phoneNumber}
-                      helperText={errors.phoneNumber ? 'Phone number is required' : ''}
-                    />
-                  )}
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
                 />
-                <Controller
+                <FormControl
+                  placeholder="И-мэйл"
                   name="email"
-                  control={control}
-                  render={({ field }) => (
-                    <TextField
-                      variant="outlined"
-                      fullWidth
-                      size="small"
-                      margin="normal"
-                      label="И-мэйл"
-                      {...field}
-                      error={!!errors.email}
-                      helperText={errors.email ? 'Email is required' : ''}
-                    />
-                  )}
+                  value={formData.email}
+                  onChange={handleChange}
                 />
                 <div className="md:col-span-2">
                   <p className="text-[22px] font-semibold leading-[28px] text-dark-blue mt-6">
@@ -394,49 +359,128 @@ const PricingDetail = () => {
                   </p>
                 </div>
 
-                <Controller
+                <FormControl
+                  placeholder="Нэмэлт мэдээлэл"
                   name="note"
-                  control={control}
-                  render={({ field }) => (
-                    <TextField
-                      variant="outlined"
-                      fullWidth
-                      multiline
-                      rows={5}
-                      margin="normal"
-                      label="Нэмэлт мэдээлэл"
-                      {...field}
-                      error={!!errors.note}
-                      helperText={errors.note ? 'Note is required' : ''}
-                    />
-                  )}
+                  type="textarea"
+                  value={formData.note}
+                  onChange={handleChange}
+                  rows={5}
                 />
 
                 <div className="md:col-span-2 flex justify-end p-2">
-                  <Button
-                    onClick={handleSubmit(onSubmit)}
-                    variant="contained"
-                    color="primary"
+                  <button
+                    onClick={() => handleSubmit()}
+                    className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 hover:shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-105 font-semibold"
                   >
                     Урьдчилсан захиалга өгөх
-                  </Button>
+                  </button>
                 </div>
               </div>
             </div>
           </>
         )}
       </div>
-      <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={6000}
-        onClose={() => setSnackbarOpen(false)}
-      >
-        <Alert onClose={() => setSnackbarOpen(false)} severity={formSubmitted ? "success" : "error"}>
-          {snackbarMessage}
-        </Alert>
-      </Snackbar>
+      <ToastContainer />
     </div>
   );
 };
+
+const FormControl = ({
+  type = "text",
+  placeholder = "",
+  name,
+  value,
+  onChange,
+  options = [],
+  rows = 4,
+  label = "",
+  checked = false,
+  onBlur,
+}) => {
+  const commonProps = {
+    name,
+    value,
+    onChange,
+    onBlur,
+    className: "w-full px-3 py-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500",
+  };
+
+  return (
+    <div className="mb-4">
+      {label && <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-1">{label}</label>}
+      {type === "select" ? (
+        <select
+          {...commonProps}
+          className={`${commonProps.className} text-gray-900`}
+          required
+        >
+          <option value="" disabled>{placeholder}</option>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      ) : type === "textarea" ? (
+        <textarea
+          {...commonProps}
+          placeholder={placeholder}
+          rows={rows}
+        />
+      ) : type === "checkbox" ? (
+        <div className="flex items-center">
+          <input
+            type="checkbox"
+            name={name}
+            checked={checked}
+            onChange={onChange}
+            className="mr-2"
+            {...commonProps}
+          />
+          <span>{placeholder}</span>
+        </div>
+      ) : type === "radio" ? (
+        <div className="flex items-center">
+          <input
+            type="radio"
+            name={name}
+            value={value}
+            checked={checked}
+            onChange={onChange}
+            className="mr-2"
+            {...commonProps}
+          />
+          <span>{placeholder}</span>
+        </div>
+      ) : (
+        <input
+          type={type}
+          {...commonProps}
+          placeholder={placeholder}
+        />
+      )}
+    </div>
+  );
+};
+
+FormControl.propTypes = {
+  type: PropTypes.oneOf(['text', 'email', 'number', 'password', 'date', 'time', 'textarea', 'select', 'checkbox', 'radio']),
+  placeholder: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ),
+  rows: PropTypes.number,
+  label: PropTypes.string,
+  checked: PropTypes.bool,
+  onBlur: PropTypes.func,
+};
+
 
 export default PricingDetail;
