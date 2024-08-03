@@ -6,6 +6,7 @@ const NavbarLocale = [
         service: 'Бүтээгдэхүүн',
         about: 'Бидний тухай',
         admin: 'Админ хэсэг',
+        payment: 'Төлбөр баталгаажуулалт',
         services: [
             {
                 title: 'EkoCab',

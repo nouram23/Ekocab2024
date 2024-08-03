@@ -100,6 +100,18 @@ const SecondNavbar = () => {
               {t.about}
             </div>
           </Link>
+          <Link href="/questions/payment">
+            <div
+              onClick={() => setShowSidebar(!showSidebar)}
+              className={`rounded-lg text-lg font-semibold leading-7 p-2 hover:bg-gray-50 ${
+                router.pathname == "/questions/payment"
+                  ? "text-blue-600"
+                  : "text-black"
+              }`}
+            >
+              {t.payment}
+            </div>
+          </Link>
           <a href="tel:+97672440102">
             <div
               onClick={() => setShowSidebar(!showSidebar)}
