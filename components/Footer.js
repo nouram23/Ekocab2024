@@ -1,8 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Image from "next/image";
-import EkocabLogo from "../Assets/mainlogo.png";
 
 const Footer = () => {
   const router = useRouter();
@@ -16,18 +14,28 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-gray-800 text-white py-6">
-      <div className="container mx-auto px-4">
+    <footer className="bg-gray-800 text-white p-4">
+      <div className="container mx-auto">
         <div className="flex flex-wrap justify-between items-center">
-          <div className="w-full md:w-1/3 text-center md:text-left mb-4 md:mb-0">
-            <p className="font-light text-sm">
+          <div className="w-full md:w-1/3 text-center md:text-left mb-2 md:mb-0">
+            <p className="font-light md:text-sm text-xs text-[#dddddd]">
               &copy; 2024 EkoCab Service. All Rights Reserved.
             </p>
           </div>
-          <div className="w-full md:w-1/3 text-center md:text-right">
+          <div className="w-full md:w-2/3 text-center md:text-right flex justify-center md:justify-end space-x-4 underline">
+          <Link href="/">
+              <p className="text-[#EEEEEE] hover:text-blue-400 text-sm font-normal transition-colors duration-300">
+                Нүүр
+              </p>
+            </Link>
             <Link href="/about">
-              <p className="text-blue-400 hover:text-blue-300 text-sm font-normal transition-colors duration-300">
+              <p className="text-[#EEEEEE] hover:text-blue-400 text-sm font-normal transition-colors duration-300">
                 Бидний тухай
+              </p>
+            </Link>
+            <Link href="/questions/payment">
+              <p className="text-[#EEEEEE] hover:text-blue-400 text-sm font-normal transition-colors duration-300">
+                Төлбөрийн талаар
               </p>
             </Link>
           </div>

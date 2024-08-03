@@ -78,7 +78,7 @@ const PricingDetail = () => {
   const handleMapClick = (event) => {
     const newMarker = {
       lat: event.latLng.lat(),
-      lng: event.latLng.lng(),
+      lng: event.latLng.lng(), 
     };
     setMarker(newMarker);
     setSelectedPlace(newMarker);

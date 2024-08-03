@@ -9,7 +9,7 @@ const About = () => {
 
   return (
     <div className="lg:px-36 lg:py-10 p-4 bg-black text-white">
-      <h2 className="text-center md:text-4xl text-3xl font-bold text-white mb-5">
+      <h2 className="text-center md:text-5xl text-3xl font-bold text-white mb-5">
         Бидний тухай
       </h2>
       <p className="text-white mb-5 text-center font-extralight opacity-90">
