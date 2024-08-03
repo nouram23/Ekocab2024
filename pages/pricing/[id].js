@@ -159,7 +159,7 @@ const PricingDetail = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-white">
       <div className="max-w-7xl w-full lg:p-4 p-0">
-        {!formSubmitted ? (
+        {formSubmitted ? (
           <div className="text-center">
             <div className="flex flex-col items-center">
               <img
