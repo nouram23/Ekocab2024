@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Payment = () => {
   const [date, setDate] = useState('');
@@ -31,6 +33,15 @@ const Payment = () => {
     textDecoration: 'underline', // Add underline for visibility
   };
 
+  // Function to copy text to clipboard and show toast
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text).then(() => {
+      toast.success('Данс амжилттай хуулагдлаа.');
+    }).catch(err => {
+      console.error('Failed to copy text: ', err);
+    });
+  };
+
   return (
     <div className="lg:px-72 lg:py-20 p-4 bg-black text-white">
       <div className='text-center px-10 py-5'>
@@ -45,32 +56,43 @@ const Payment = () => {
         </p>
       </div>
       <div className='py-10'>
-      <div>
-        <h3 className='md:text-3xl text-xl'>Дансаар төлөх:</h3>
-        <div className='mt-5 text-[#959499]'>
-          <p>🏦 М Банк <span className='text-[#62caaa]'>8000441100</span> / М. Билгүүн-Эрх / тоот данс руу шилжүүлээрэй.</p>
-          <p className='mt-2'>💁🏻‍♀️ Гүйлгээний утга: Өөрийн Утас болон Instagram Username бичээрэй.</p>
-          <p className='mt-2'>🆘 Төлбөрийн буцаалт хийгдэхгүй тул та сонголтоо зөв хийнэ үү.</p>
+        <div>
+          <h3 className='md:text-3xl text-xl'>Дансаар төлөх:</h3>
+          <div className='mt-5 text-[#959499]'>
+            <p>
+              🏦 М Банк {' '}
+              <button 
+                onClick={() => copyToClipboard('8000441100')} 
+                className='text-[#62caaa] hover:underline focus:outline-none underline'
+              >
+                8000441100
+              </button>
+              {' '}
+              / М. Билгүүн-Эрх / тоот данс руу шилжүүлээрэй.
+            </p>
+            <p className='mt-2'>💁🏻‍♀️ Гүйлгээний утга: Өөрийн Утас болон Instagram Username бичээрэй.</p>
+            <p className='mt-2'>🆘 Төлбөрийн буцаалт хийгдэхгүй тул та сонголтоо зөв хийнэ үү.</p>
+          </div>
+        </div>
+        <div className='mt-16'>
+          <h3 className='md:text-3xl text-xl'>Бидэнтэй нэгдсэн танд баярлалаа.</h3>
+          <div className='mt-5 text-[#959499]'>
+            <p>💬 Та өөрийн шилжүүлсэн баримтаа Instagram хуудас руу илгээнэ үү.</p>
+            <p className='mt-2'>
+              Instagram Page: <a 
+                href="https://www.instagram.com/avaadyaviiservice/" 
+                style={instagramLinkStyle}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://www.instagram.com/intelliums/
+              </a>
+            </p>
+            <p className='mt-2'>💁🏻‍♀️ Үйлчилгээний ажилтан шалгасны дараа тан руу холбоо барих болно.</p>
+          </div>
         </div>
       </div>
-      <div className='mt-16'>
-        <h3 className='md:text-3xl text-xl'>Бидэнтэй нэгдсэн танд баярлалаа.</h3>
-        <div className='mt-5 text-[#959499]'>
-          <p>💬 Та өөрийн шилжүүлсэн баримтаа Instagram хуудас руу илгээнэ үү.</p>
-          <p className='mt-2'>
-            Instagram Page: <a 
-              href="https://www.instagram.com/avaadyaviiservice/" 
-              style={instagramLinkStyle}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              https://www.instagram.com/intelliums/
-            </a>
-          </p>
-          <p className='mt-2'>💁🏻‍♀️ Үйлчилгээний ажилтан шалгасны дараа тан руу холбоо барих болно.</p>
-        </div>
-      </div>
-      </div>
+      <ToastContainer />
     </div>
   );
 };
