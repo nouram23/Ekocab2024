@@ -145,7 +145,7 @@ const PricingDetail = () => {
   };
 
   const handleBackToHome = () => {
-    router.push("/");
+    router.push("/questions/payment");
   };
 
   if (!pricing) {
@@ -159,26 +159,26 @@ const PricingDetail = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-white">
       <div className="max-w-7xl w-full lg:p-4 p-0">
-        {formSubmitted ? (
+        {!formSubmitted ? (
           <div className="text-center">
-            <div className="flex flex-col items-center mb-6">
+            <div className="flex flex-col items-center">
               <img
                 src="https://cdn-icons-png.flaticon.com/128/15659/15659968.png"
                 alt="Success"
-                className="w-24 h-24 mb-4"
+                className="w-24 h-24"
               />
-              <h1 className="text-3xl font-extrabold text-gray-800 mb-4">
+              <h1 className="text-3xl font-extrabold text-gray-800 py-4">
                 Таны захиалга амжилттай илгээлээ!
               </h1>
             </div>
-            <p className="text-lg mb-6 text-gray-600">
-              Бид таны захиалгыг хүлээн авсан бөгөөд удахгүй холбогдох болно.
+            <p className="text-lg  text-gray-600 py-4">
+              Бид таны захиалгыг хүлээн авсан бөгөөд төлбөр баталгаажуулалт хийгээрэй.
             </p>
             <button
               onClick={handleBackToHome}
               className="bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-6 rounded-full shadow-md hover:shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 font-bold border border-transparent hover:border-blue-400"
             >
-              Баярлалаа
+           Төлбөр баталгаажуулалт
             </button>
           </div>
         ) : (
