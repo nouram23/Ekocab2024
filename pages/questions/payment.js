@@ -25,7 +25,7 @@ const Payment = () => {
 
   // Instagram link gradient style
   const instagramLinkStyle = {
-    background: 'linear-gradient(to right, #f58529, #dd2a7b, #8134af, #515bd4, #333333)',
+    background: 'linear-gradient(to right, #f58529, #dd2a7b, #8134af, #515bd4, #ffff)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     textDecoration: 'underline', // Add underline for visibility
