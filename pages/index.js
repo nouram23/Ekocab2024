@@ -5,7 +5,9 @@ import Head from "next/head";
 import ImageSlider from "../components/Home/ImageSlider";
 import GridSection from "@/components/Home/Grid";
 import PricingInfo from "@/components/Home/PricingInfo";
+import GuideCenter from "@/components/Home/GuideCenter";
 import Instruction from "@/components/Home/Instruction";
+import Moment from "@/components/Home/Moment";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,10 +30,16 @@ function Home() {
         <div className="mt-5">
         <h1 className="text-2xl lg:text-4xl font-bold">Бидний гүйцэтгэсэн ажилууд</h1>
         <span className="text-[#959595] text-base lg:text-lg sm:mt-1">Нислэгтээ хүрэх хүртлэхээ бидэнд таатга.</span>
-      <GridSection/>
+          <GridSection />
+          {/* <GuideCenter/> */}
         </div>
         <div className="mt-5">
           <Instruction />
+        </div>
+        <div className="mt-5">
+          <h1 className="text-2xl lg:text-4xl font-bold">Дурсамжит зурагууд</h1>
+          <span className="text-[#959595] text-base lg:text-lg sm:mt-1">Дурсамж бол өнгөрсөн үеийн зүйлсийг санах, сэтгэхүйд хадгалагдан үлдэх юм.</span>
+          <Moment/>
         </div>
       </div>
     </div>

@@ -13,7 +13,7 @@ const Instruction = () => {
   }
 
   return (
-    <div className='w-full grid grid-cols-1 lg:grid-cols-2 gap-7 lg:py-20 md:px-40 py-5'>
+    <div className='w-full grid grid-cols-1 lg:grid-cols-2 gap-7 md:px-40 py-20'>
       <div className='col-span-1 flex flex-col gap-7'>
         <div>
           <div className='flex flex-col'>

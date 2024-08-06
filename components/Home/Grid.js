@@ -11,11 +11,11 @@ const GridSection = () => {
   const t = StatsLocale[`${l}`]
   const [show, setShow] = useState(false)
   return (
-   <div className="grid md:grid-cols-3 grid-cols-2 gap-5 py-2">
+   <div className="grid md:grid-cols-3 grid-cols-2 gap-5 py-8">
       {StatsLocale[l].items.map((stats, index) => (
         <div key={index}>
               <div className='transition-all duration-500 ease-in-out w-full flex text-center items-center h-full flex-col rounded-2xl
-              hover:border-gray-300 relative group py-10 border border-gray-200' onClick={() =>{setShow(!show)}}>
+              hover:border-gray-300 relative group md:py-16 py-10 border border-gray-200' onClick={() =>{setShow(!show)}}>
             
                 <p className='md:font-black font-black uppercase md:text-xl text-base text-[#26282c]'>
                     {stats.title}

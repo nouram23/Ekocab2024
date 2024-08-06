@@ -19,7 +19,7 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between items-center">
           <div className="w-full md:w-1/3 text-center md:text-left mb-2 md:mb-0">
             <p className="font-light md:text-sm text-xs text-[#dddddd]">
-              &copy; 2024 EkoCab Service. All Rights Reserved.
+              &copy; 2024 EkoCab Service.
             </p>
           </div>
           <div className="w-full md:w-2/3 text-center md:text-right flex justify-center md:justify-end space-x-4 underline">

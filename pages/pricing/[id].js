@@ -178,7 +178,7 @@ const PricingDetail = () => {
               onClick={handleBackToHome}
               className="bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-6 rounded-full shadow-md hover:shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 font-bold border border-transparent hover:border-blue-400"
             >
-           Төлбөр баталгаажуулалт
+              Төлбөр баталгаажуулалт
             </button>
           </div>
         ) : (
@@ -300,22 +300,25 @@ const PricingDetail = () => {
                   </p>
                 </div>
 
-                <FormControl
-                  type="date"
-                  placeholder="Order Date"
-                  name="orderDate"
-                  value={formData.orderDate}
-                  onChange={handleChange}
-                />
-                <FormControl
-                  type="time"
-                  placeholder="Нислэгийн цаг"
-                  name="orderTime"
-                  value={formData.orderTime}
-                  onChange={handleChange}
-                />
-
-
+                {/* Add hidden class for mobile screens */}
+                <div className="hidden md:block">
+                  <FormControl
+                    type="date"
+                    placeholder="Order Date"
+                    name="orderDate"
+                    value={formData.orderDate}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="hidden md:block">
+                  <FormControl
+                    type="time"
+                    placeholder="Нислэгийн цаг"
+                    name="orderTime"
+                    value={formData.orderTime}
+                    onChange={handleChange}
+                  />
+                </div>
 
                 <div className="md:col-span-2">
                   <p className="text-[22px] font-semibold leading-[28px] text-dark-blue mt-6">
