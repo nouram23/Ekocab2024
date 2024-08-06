@@ -14,7 +14,7 @@ const Moment = () => {
   
   return (
     <div className='w-full grid grid-cols-1 lg:grid-cols-3 gap-5 py-8'>
-    <div className='col-span-1 flex flex-col gap-5 lg:mt-16'>
+    <div className='col-span-1 flex flex-col gap-5 lg:mt-20'>
       {t.moments.map((moment, index) => (
         <div key={index}>
           <div className='w-full rounded-3xl flex flex-col'
@@ -35,7 +35,7 @@ const Moment = () => {
         </div>
       ))}
           </div>
-          <div className='col-span-1 flex flex-col gap-5 lg:mt-16'>
+          <div className='col-span-1 flex flex-col gap-5 lg:mt-20'>
       {t.moments3.map((moment3, index) => (
         <div key={index}>
           <div
