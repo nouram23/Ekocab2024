@@ -112,17 +112,17 @@ const Payment = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                https://www.instagram.com/intelliums/
+                https://www.instagram.com/avaadyaviiservice/
               </a>
             </p>
             <p className='mt-2'>
               Facebook Page: <a
-                href="https://www.instagram.com/avaadyaviiservice/"
+                href="https://www.facebook.com/share/6kmHDSCeFDUdhCGi/?mibextid=LQQJ4d"
                 style={facebookLinkStyle}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                https://www.facebook.com/share/6kmHDSCeFDUdhCGi/?mibextid=LQQJ4d
+                https://www.facebook.com/521
               </a>
             </p>
             <p className='mt-2'>💁🏻‍♀️ Үйлчилгээний ажилтан шалгасны дараа тан руу холбоо барих болно.</p>
