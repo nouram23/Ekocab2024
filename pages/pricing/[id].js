@@ -84,6 +84,28 @@ const PricingDetail = () => {
     setSelectedPlace(newMarker);
   };
 
+  const findUserLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const newLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          setCurrentLocation(newLocation);
+          setMarker(newLocation);
+          setSelectedPlace(newLocation);
+        },
+        (error) => {
+          console.error("Error getting location", error);
+          toast.error("Unable to retrieve your location.");
+        }
+      );
+    } else {
+      toast.error("Geolocation is not supported by this browser.");
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     const carType = ["firstname", "lastname", "phoneNumber", "email"].includes(name)
@@ -268,6 +290,12 @@ const PricingDetail = () => {
                         )}
                       </GoogleMap>
                     </div>
+                    <button
+                      onClick={findUserLocation}
+                      className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 hover:shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-105 font-semibold"
+                    >
+                      Find My Location
+                    </button>
                   </LoadScript>
                 </div>
                 <div className="md:col-span-1 mt-6">
@@ -292,7 +320,7 @@ const PricingDetail = () => {
                   </div>
                 </div>
                 <div className="md:col-span-2">
-                  <p className="text-[22px] font-semibold leading-[28px] text-dark-blue">
+                  <p className="text-[22px] font-semibold leading-[28px] text-dark-blue mt-6">
                     Захиалгын мэдээлэл
                   </p>
                   <p className="text-[14px] text-input-text opacity-40">
