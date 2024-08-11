@@ -350,24 +350,27 @@ const PricingDetail = () => {
                 </div>
 
                 {/* Add hidden class for mobile screens */}
-                <div className="hidden md:block">
-                  <FormControl
-                    type="date"
-                    placeholder="Order Date"
-                    name="orderDate"
-                    value={formData.orderDate}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="hidden md:block">
-                  <FormControl
-                    type="time"
-                    placeholder="Нислэгийн цаг"
-                    name="orderTime"
-                    value={formData.orderTime}
-                    onChange={handleChange}
-                  />
-                </div>
+                <div>
+  <FormControl
+    type="date"
+    placeholder="Order Date"
+    name="orderDate"
+    value={formData.orderDate}
+    onChange={handleChange}
+    bgColor="bg-blue-100" // Apply blue background
+  />
+</div>
+<div>
+  <FormControl
+    type="time"
+    placeholder="Нислэгийн цаг"
+    name="orderTime"
+    value={formData.orderTime}
+    onChange={handleChange}
+    bgColor="bg-blue-100" // Apply blue background
+  />
+</div>
+
 
                 <div className="md:col-span-2">
                   <p className="text-[22px] font-semibold leading-[28px] text-dark-blue mt-6">
@@ -449,13 +452,14 @@ const FormControl = ({
   label = "",
   checked = false,
   onBlur,
+  bgColor = "bg-white", // Default to white if no color is specified
 }) => {
   const commonProps = {
     name,
     value,
     onChange,
     onBlur,
-    className: "w-full px-3 py-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500",
+    className: `w-full px-3 py-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${bgColor}`,
   };
 
   return (
@@ -516,23 +520,6 @@ const FormControl = ({
   );
 };
 
-FormControl.propTypes = {
-  type: PropTypes.oneOf(['text', 'email', 'number', 'password', 'date', 'time', 'textarea', 'select', 'checkbox', 'radio']),
-  placeholder: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-    })
-  ),
-  rows: PropTypes.number,
-  label: PropTypes.string,
-  checked: PropTypes.bool,
-  onBlur: PropTypes.func,
-};
 
 
 export default PricingDetail;
