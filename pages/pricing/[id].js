@@ -95,16 +95,37 @@ const PricingDetail = () => {
           setCurrentLocation(newLocation);
           setMarker(newLocation);
           setSelectedPlace(newLocation);
+          toast.success("Location retrieved successfully!");
         },
         (error) => {
-          console.error("Error getting location", error);
-          toast.error("Unable to retrieve your location.");
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              toast.error("User denied the request for Geolocation.");
+              break;
+            case error.POSITION_UNAVAILABLE:
+              toast.error("Location information is unavailable.");
+              break;
+            case error.TIMEOUT:
+              toast.error("The request to get user location timed out.");
+              break;
+            case error.UNKNOWN_ERROR:
+              toast.error("An unknown error occurred.");
+              break;
+            default:
+              toast.error("An error occurred while retrieving your location.");
+          }
+        },
+        {
+          enableHighAccuracy: true, // Optional: request higher accuracy
+          timeout: 5000, // Optional: set timeout for request
+          maximumAge: 0, // Optional: disable caching
         }
       );
     } else {
       toast.error("Geolocation is not supported by this browser.");
     }
   };
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -294,7 +315,7 @@ const PricingDetail = () => {
                       onClick={findUserLocation}
                       className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 hover:shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-105 font-semibold"
                     >
-                      Find My Location
+                      Яаг одоогийн байршлаар
                     </button>
                   </LoadScript>
                 </div>
