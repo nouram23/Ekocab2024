@@ -125,7 +125,7 @@ const PricingDetail = () => {
       toast.error("Geolocation is not supported by this browser.");
     }
   };
-  
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -200,7 +200,7 @@ const PricingDetail = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-white">
+    <div className="min-h-screen flex items-center justify-center bg-[#eceef3]">
       <div className="max-w-7xl w-full lg:p-4 p-0">
         {formSubmitted ? (
           <div className="text-center">
@@ -351,27 +351,26 @@ const PricingDetail = () => {
 
                 {/* Add hidden class for mobile screens */}
                 <div>
-  <FormControl
-    type="date"
-    placeholder="Order Date"
-    name="orderDate"
-    value={formData.orderDate}
-    onChange={handleChange}
-    bgColor="bg-blue-100" // Apply blue background
-  />
-</div>
-<div>
-  <FormControl
-    type="time"
-    placeholder="Нислэгийн цаг"
-    name="orderTime"
-    value={formData.orderTime}
-    onChange={handleChange}
-    bgColor="bg-blue-100" // Apply blue background
-  />
-</div>
-
-
+                  <FormControl
+                    type="date"
+                    placeholder="Order Date"
+                    name="orderDate"
+                    value={formData.orderDate}
+                    onChange={handleChange}
+                    bgColor="bg-blue-100" // Apply blue background
+                  />
+                </div>
+                <div>
+                  <FormControl
+                    type="time"
+                    placeholder="Нислэгийн цаг"
+                    name="orderTime"
+                    value={formData.orderTime}
+                    onChange={handleChange}
+                    bgColor="bg-blue-100" // Apply blue background
+                  />
+                  </div>
+                  
                 <div className="md:col-span-2">
                   <p className="text-[22px] font-semibold leading-[28px] text-dark-blue mt-6">
                     Захиалагчийн мэдээлэл
