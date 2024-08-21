@@ -36,6 +36,11 @@ const Modal = ({ isOpen, onClose, order, onEditStatus, onDeleteStatus }) => {
         </button>
         <h3 className="text-2xl font-bold text-gray-800 mb-6">Захиалгийн дэлгэрэнгүй</h3>
 
+
+        <p className="text-base text-red-500 mb-6">
+          <span className="font-semibold text-gray-900">Очиж авах цаг:</span> {order.orderTime}
+        </p>
+
         <p className="text-base text-gray-700 mb-4">
           <span className="font-semibold text-gray-900">Холбогдох дугаар: </span> 
           <a href={`tel:+976${order.phoneNumber}`} className="text-blue-600 hover:text-blue-800 transition-colors duration-150">
@@ -52,7 +57,7 @@ const Modal = ({ isOpen, onClose, order, onEditStatus, onDeleteStatus }) => {
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-800 transition-colors duration-150"
             >
-              {order.latitude}, {order.longitude}
+              Байршин руу үсрэх
             </a>
           </p>
         </div>
@@ -62,7 +67,7 @@ const Modal = ({ isOpen, onClose, order, onEditStatus, onDeleteStatus }) => {
         </p>
 
         {/* Active Status Section with Menu Icon */}
-        <div className="relative mb-4 p-4 bg-green-100 text-green-800 rounded-lg border border-green-200 flex items-center justify-between cursor-pointer transition-shadow hover:shadow-md" onClick={handleDropdownToggle}>
+        {/* <div className="relative mb-4 p-4 bg-green-100 text-green-800 rounded-lg border border-green-200 flex items-center justify-between cursor-pointer transition-shadow hover:shadow-md" onClick={handleDropdownToggle}>
           <p className="text-lg font-semibold">Төлөв: Хувиарлалт хийх</p>
           <svg className={`w-6 h-6 transition-transform ${isDropdownOpen ? 'rotate-180' : 'rotate-0'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -84,7 +89,7 @@ const Modal = ({ isOpen, onClose, order, onEditStatus, onDeleteStatus }) => {
               </button>
             </div>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );

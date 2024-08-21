@@ -95,7 +95,7 @@ const PricingDetail = () => {
           setCurrentLocation(newLocation);
           setMarker(newLocation);
           setSelectedPlace(newLocation);
-          toast.success("Location retrieved successfully!");
+          toast.success("Байршил амжилттай тохирууллаа.");
         },
         (error) => {
           switch (error.code) {

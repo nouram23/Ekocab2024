@@ -27,6 +27,7 @@ const Orders = () => {
     try {
       const response = await fetch("https://expressjs-17jy.onrender.com/api/v1/order");
       const data = await response.json();
+      console.log(data);
       // Sort the orders by createdAt in descending order
       const sortedOrders = data.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
       setOrders(sortedOrders);
@@ -116,11 +117,12 @@ const Orders = () => {
             <thead className="bg-gray-100 text-gray-600 font-semibold text-md">
               <tr>
                 <th className="px-4 py-3 text-left text-center">№</th>
+                <th className="px-4 py-3 text-left text-center">Очиж авах цаг</th>
                 <th className="px-4 py-3 text-left text-center">Холбогдох дугаар</th>
-                <th className="px-4 py-3 text-left text-center">Нэр</th>
                 <th className="px-4 py-3 text-left text-center">Захиалгын огноо</th>
                 <th className="px-4 py-3 text-left text-center">Захиалга өгсөн огноо</th>
-                <th className="px-4 py-3 text-left text-center">Төлөв</th>
+                {/* <th className="px-4 py-3 text-left text-center">Төлөв</th> */}
+                <th className="px-4 py-3 text-left text-center">Нэр</th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
@@ -135,10 +137,10 @@ const Orders = () => {
                     {indexOfFirstOrder + index + 1}
                   </td>
                   <td className="px-4 py-4 text-sm text-gray-500 text-center">
-                    {order.phoneNumber}
+                    {order.orderTime}
                   </td>
                   <td className="px-4 py-4 text-sm text-gray-500 text-center">
-                    {order.firstname}
+                    {order.phoneNumber}
                   </td>
                   <td className="px-4 py-4 text-sm text-gray-500 text-center">
                     {formatDate(order.orderDate)}
@@ -146,9 +148,10 @@ const Orders = () => {
                   <td className="px-4 py-4 text-sm text-gray-500 text-center">
                     {formatDate(order.createdAt)}
                   </td>
-                  <td className="px-4 py-4 text-[#4ca154] font-medium text-center">
+                  {/* <td className="px-4 py-4 text-[#4ca154] font-medium text-center">
                     <p className="bg-[#e2fbe8] p-2 rounded-md text-xs">Хувиарлалт хийх</p>
-                  </td>
+                  </td> */}
+                  <td className="px-4 py-4 text-sm text-gray-500 text-center">{order.firstname}</td>
                 </tr>
               ))}
             </tbody>

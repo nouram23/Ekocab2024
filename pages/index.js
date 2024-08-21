@@ -5,7 +5,7 @@ import Head from "next/head";
 import ImageSlider from "../components/Home/ImageSlider";
 import GridSection from "@/components/Home/Grid";
 import PricingInfo from "@/components/Home/PricingInfo";
-import GuideCenter from "@/components/Home/GuideCenter";
+import News from "@/components/Home/News";
 import Instruction from "@/components/Home/Instruction";
 import Moment from "@/components/Home/Moment";
 
@@ -28,8 +28,8 @@ function Home() {
       <div className="md:px-8 px-4 bg-[#f8f8f8]">
         <PricingInfo />
         <div className="mt-5">
-        <h1 className="text-2xl lg:text-4xl font-bold">Бидний гүйцэтгэсэн ажилууд</h1>
-        <span className="text-[#959595] text-base lg:text-lg sm:mt-1">Нислэгтээ хүрэх хүртлэхээ бидэнд таатга.</span>
+        <h1 className="text-xl lg:text-4xl font-bold text-[#555555]">Бидний гүйцэтгэсэн ажилууд</h1>
+        <span className="text-[#bababa] text-xs lg:text-base">Нислэгтээ хүрэх хүртлэхээ бидэнд таатга.</span>
           <GridSection />
           {/* <GuideCenter/> */}
         </div>
@@ -37,8 +37,13 @@ function Home() {
           <Instruction />
         </div>
         <div className="mt-5">
-          <h1 className="text-2xl lg:text-4xl font-bold">Дурсамжит зурагууд</h1>
-          <span className="text-[#959595] text-base lg:text-lg sm:mt-1">Дурсамж бол өнгөрсөн үеийн зүйлсийг санах, сэтгэхүйд хадгалагдан үлдэх юм.</span>
+        <h1 className="text-xl lg:text-4xl font-bold text-[#555555]">Мэдээ мэдээлэл</h1>
+        {/* <span className="text-[#959595] text-base lg:text-lg sm:mt-1">Нислэгтээ хүрэх хүртлэхээ бидэнд таатга.</span> */}
+          <News />
+        </div>
+        <div className="mt-5">
+          <h1 className="text-xl lg:text-4xl font-bold text-[#555555]">Дурсамжит зурагууд</h1>
+          <span className="text-[#bababa] text-xs lg:text-base">Дурсамж бол өнгөрсөн үеийн зүйлсийг санах, сэтгэхүйд хадгалагдан үлдэх юм.</span>
           <Moment/>
         </div>
       </div>

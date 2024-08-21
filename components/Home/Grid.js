@@ -17,7 +17,7 @@ const GridSection = () => {
               <div className='transition-all duration-500 ease-in-out w-full flex text-center items-center h-full flex-col rounded-2xl
               hover:border-gray-300 relative group md:py-16 py-10 border border-gray-200' onClick={() =>{setShow(!show)}}>
             
-                <p className='md:font-black font-black uppercase md:text-xl text-base text-[#26282c]'>
+                <p className='md:font-black font-black uppercase md:text-xl text-base text-[#000]'>
                     {stats.title}
                 </p>
                   <p className='text-gray-700 mt-2 scale-75 '>{stats.icon}</p>

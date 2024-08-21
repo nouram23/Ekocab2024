@@ -45,9 +45,9 @@ const Pricings = [
                 mark: 'Sonata 8',
                 desc: "+ Уух зүйл",
                 image: `${sanata8.src}`,
-                price_negtaldaa: "84,000",
-                price_hoyurtaldaa: "94,000",
-                price_udruur: "284,000",
+                price_negtaldaa: "94,000",
+                price_hoyurtaldaa: "104,000",
+                price_udruur: "264,000",
                 text1: "Та манайхаас онгоцны буудал руу хүргүүлэх, онгоцны буудлаас тосуулах, гэсэн үйлчилгээ авах боломжтой."
             },
             // {
