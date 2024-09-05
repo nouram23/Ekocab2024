@@ -48,11 +48,11 @@ const Instruction = () => {
               style={{ backgroundColor: instruction2.background }}
               className='w-full p-5 lg:p-12 rounded-xl flex flex-col gap-4 lg:gap-8'
             >
-              <div className='flex flex-col gap-3'>
+              <div className='flex flex-col gap-3 text-[#fff]'>
                 <span  className='text-xl lg:text-2xl font-semibold'>
                   {instruction2.title}
                 </span>
-                <p className='text-sm lg:text-base text-[#5f5f5f]'>
+                <p className='text-sm lg:text-base'>
                   {instruction2.desc}
                 </p>
               </div>

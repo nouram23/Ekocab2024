@@ -1,4 +1,5 @@
 import bilguunerh from "../Assets/bilguunerh.png";
+import oyunbold from "../Assets/oyunbold.png";
 import myagmardorj from "../Assets/myagmardorj.png";
 import usukh6ayar from "../Assets/eazy.png";
 import ariunerdene from "../Assets/ariunerdene.png";
@@ -24,6 +25,13 @@ const TeamLocale = [
                 icon: `${instagram.src}`,
             },
             {
+                name: 'М.Оюунболд',
+                role: 'Sydney дахь хөтөч',
+                image: `${oyunbold.src}`,
+                instagram: '',
+                icon: `${instagram.src}`,
+            }, 
+            {
                 name: 'Д.Ууганбаяр',
                 role: 'Back-End хөгжүүлэгч',
                 image: `${random.src}`,
@@ -32,32 +40,18 @@ const TeamLocale = [
             },
             {
                 name: 'Г.Өсөхбаяр',
-                role: 'Ерөнхий хөтөч',
+                role: 'Ерөнхий эрхлэгч',
                 image: `${usukh6ayar.src}`,
                 instagram: 'https://www.instagram.com/usukh6ayar/',
                 icon: `${instagram.src}`,
             },
             {
-                name: 'Ариун-Эрдэнэ',
-                role: 'Контент бүтээгч',
+                name: 'Г.Энхжин',
+                role: 'Хятад дахь хөтөч',
                 image: `${ariunerdene.src}`,
-                instagram: 'https://www.instagram.com/aruk_ae/',
+                instagram: 'https://www.instagram.com/enjyy0215/',
                 icon: `${instagram.src}`,
-            },
-            {
-                name: 'М.Оюунболд',
-                role: 'Sydney дахь хөтөч',
-                image: `${random.src}`,
-                instagram: '',
-                icon: `${instagram.src}`,
-            },
-            {
-                name: 'З.Эрдэнэ-Уул',
-                role: 'Туслах хөгжүүлэгч',
-                image: `${random.src}`,
-                instagram: '',
-                icon: `${instagram.src}`,
-            },      
+            }, 
         ]
     }
 ]

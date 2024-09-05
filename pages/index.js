@@ -36,11 +36,11 @@ function Home() {
         <div className="mt-5">
           <Instruction />
         </div>
-        <div className="mt-5">
-        <h1 className="text-xl lg:text-4xl font-bold text-[#555555]">Мэдээ мэдээлэл</h1>
+        {/* <div className="mt-5">
+        <h1 className="text-xl lg:text-4xl font-bold text-[#555555]">Мэдээ мэдээлэл</h1> */}
         {/* <span className="text-[#959595] text-base lg:text-lg sm:mt-1">Нислэгтээ хүрэх хүртлэхээ бидэнд таатга.</span> */}
-          <News />
-        </div>
+          {/* <News />
+        </div> */}
         <div className="mt-5">
           <h1 className="text-xl lg:text-4xl font-bold text-[#555555]">Дурсамжит зурагууд</h1>
           <span className="text-[#bababa] text-xs lg:text-base">Дурсамж бол өнгөрсөн үеийн зүйлсийг санах, сэтгэхүйд хадгалагдан үлдэх юм.</span>

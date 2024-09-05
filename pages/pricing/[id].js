@@ -118,6 +118,7 @@ const PricingDetail = () => {
         {
           enableHighAccuracy: true, // Optional: request higher accuracy
           timeout: 5000, // Optional: set timeout for request
+          
           maximumAge: 0, // Optional: disable caching
         }
       );
