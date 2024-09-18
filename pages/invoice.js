@@ -124,15 +124,22 @@ export default function Home() {
             <div className="">
                 <img src="https://i.ibb.co/DgGPXqV/paragon.png" alt="Logo" className="h-14" /> {/* Replace with your logo path or URL */}
             </div>
-            <div className="w-full bg-white rounded-lg p-6 mb-6 transition-transform duration-300">
+            <div className="w-full bg-white rounded-2xl p-6 mb-6 transition-transform duration-300">
                 <h1 className="text-2xl font-bold mb-2 text-gray-800">Full Name: {fullName || 'N/A'}</h1>
                 <h3 className="text-lg mb-2 text-gray-600">ABN: {abn || 'N/A'}</h3>
                 <h3 className="text-lg mb-2 text-gray-600">BSB: {bsb || 'N/A'}</h3>
                 <h3 className="text-lg mb-2 text-gray-600">Account number: {accountNumber || 'N/A'}</h3>
+                <button
+                        onClick={handleShowModal}
+                        className="w-full bg-[#61a165] text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-200"
+                    >
+                        Add Bank Information
+                    </button>
             </div>
+            
 
-            <div className="w-full bg-white rounded-lg p-6 transition-transform duration-300 ">
-                <h2 className="text-2xl font-bold mb-4 text-gray-800">Цалингаа авахнээээээ</h2>
+            <div className="w-full bg-white rounded-2xl p-6 transition-transform duration-300 ">
+                <h2 className="text-2xl font-bold mb-4 text-gray-800">Stories that worked this week at Paragon</h2>
                 <div className="mb-4 flex flex-col md:flex-row md:gap-4">
                     <input type="text" placeholder="Description of Jobs" value={description} onChange={e => setDescription(e.target.value)} className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
                     <input type="date" value={workedDay} onChange={e => setWorkedDay(e.target.value)} className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
@@ -142,15 +149,9 @@ export default function Home() {
                 <div className="flex flex-col md:flex-row md:gap-4">
                     <button
                         onClick={handleAddRow}
-                        className="w-full bg-blue-600 text-white px-4 py-2 rounded-md mb-2 md:mb-0 hover:bg-blue-700 transition duration-200"
+                        className="w-full bg-black text-white px-4 py-2 rounded-md mb-2 md:mb-0 hover:bg-gray-700 transition duration-200"
                     >
                         Add to line, day
-                    </button>
-                    <button
-                        onClick={handleShowModal}
-                        className="w-full bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition duration-200"
-                    >
-                        Add Bank Information
                     </button>
                 </div>
 
@@ -159,12 +160,12 @@ export default function Home() {
                     <table className="min-w-full rounded-xl">
                         <thead>
                             <tr className="bg-gray-100 text-gray-700 border-b border-gray-300">
-                                <th className="py-3 px-4 border-r">ID</th>
-                                <th className="py-3 px-4 border-r">Аль салбар дээр</th>
-                                <th className="py-3 px-4 border-r">Аль өдөр</th>
-                                <th className="py-3 px-4 border-r">Хэдэн цаг ажилсан</th>
-                                <th className="py-3 px-4 border-r">Цагийн хөлс</th>
-                                <th className="py-3 px-4 border-r">Тэр өдрийн нийт цалин</th>
+                                <th className="py-3 px-4 border-r">№</th>
+                                <th className="py-3 px-4 border-r">In which Site?</th>
+                                <th className="py-3 px-4 border-r">What date is it?</th>
+                                <th className="py-3 px-4 border-r">How many hours did you work?</th>
+                                <th className="py-3 px-4 border-r">What rate?</th>
+                                <th className="py-3 px-4 border-r">Total salary for today?</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -189,10 +190,10 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-col md:flex-row justify-between mt-4 gap-4">
-                    <button onClick={handleDownload} disabled={loading} className={`px-6 py-3 rounded-lg text-white font-semibold ${loading ? 'bg-gray-500 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700 transition duration-200'}`}>
-                        {loading ? 'Generating...' : 'Excel рүү татах'}
+                    <button onClick={handleDownload} disabled={loading} className={`px-6 py-3 rounded-lg text-white font-semibold ${loading ? 'bg-gray-500 cursor-not-allowed' : 'bg-[#61a165] hover:bg-green-700 transition duration-200'}`}>
+                        {loading ? 'Generating...' : 'Download to Excel'}
                     </button>
-                    <button onClick={handleSendEmail} disabled={sending} className={`px-6 py-3 rounded-lg text-white font-semibold ${sending ? 'bg-blue-500 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 transition duration-200'}`}>
+                    <button onClick={handleSendEmail} disabled={sending} className={`px-6 py-3 rounded-lg text-white font-semibold ${sending ? 'bg-blue-500 cursor-not-allowed' : 'bg-[#000] hover:bg-blue-700 transition duration-200'}`}>
                         {sending ? 'Sending...' : 'Send to Selslabour@outlook.com'}
                     </button>
                 </div>
@@ -213,7 +214,7 @@ export default function Home() {
             {showModal && (
                 <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
                     <div className="bg-white p-6 rounded-lg max-w-sm w-full">
-                        <h2 className="text-xl font-bold mb-4">Add Bank Information</h2>
+                        <h2 className="text-xl font-bold">Add Bank Information</h2>
                         <div className="mb-4">
                             <label className="block text-gray-700">Full Name:</label>
                             <input type="text" value={fullName} onChange={e => setFullName(e.target.value)} className="border border-gray-300 p-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
