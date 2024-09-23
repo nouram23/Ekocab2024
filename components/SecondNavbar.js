@@ -17,8 +17,10 @@ const SecondNavbar = () => {
   // Check if current route is /admin
   const isAdminRoute = router.pathname === "/dashboard/admin";
 
+  const isParagon = router.pathname == "/invoice";
+
   // Render null if the current route is /admin
-  if (isAdminRoute) {
+  if (isAdminRoute || isParagon) {
     return null;
   }
 

@@ -20,6 +20,7 @@
     "@react-google-maps/api": "^2.19.3",
     "axios": "^1.7.4",
     "cheerio": "^1.0.0-rc.12",
+    "docx": "^8.5.0",
     "form-data": "^4.0.0",
     "next": "14.2.2",
     "nodemailer": "^6.9.15",
@@ -34,7 +35,8 @@
     "react-slideshow-image": "^4.3.1",
     "react-toastify": "^10.0.5",
     "swiper": "^11.1.7",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "xlsx-style": "^0.8.13"
   },
   "devDependencies": {
     "@types/google.maps": "^3.54.3",

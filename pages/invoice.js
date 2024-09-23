@@ -33,40 +33,60 @@ export default function Home() {
             setLoading(false);
             return;
         }
-
+    
         try {
             const wb = XLSX.utils.book_new();
-            const bankInfo = [
-                { field: 'Full Name', location: fullName },
-                { field: 'ABN', location: abn },
-                { field: 'BSB', location: bsb },
-                { field: 'Account Number', location: accountNumber },
+            const ws = XLSX.utils.aoa_to_sheet([]);
+    
+            // Add bank information to the sheet
+            XLSX.utils.sheet_add_aoa(ws, [
+                [`Full Name: ${fullName}`],
+                [`ABN: ${abn}`],
+                [`BSB: ${bsb}`],
+                [`Account Number: ${accountNumber}`],
+                [],
+            ], { origin: "A1" });
+    
+            // Adjust the merging to cover all the information
+            ws["!merges"] = [
+                { s: { r: 0, c: 0 }, e: { r: 0, c: 4 } }, // Full Name
+                { s: { r: 1, c: 0 }, e: { r: 1, c: 4 } }, // ABN
+                { s: { r: 2, c: 0 }, e: { r: 2, c: 4 } }, // BSB
+                { s: { r: 3, c: 0 }, e: { r: 3, c: 4 } }, // Account Number
             ];
-
-            const combinedData = [
-                ...bankInfo,
-                {},
-                { field: 'ID', location: 'Location', day: 'Day', hour: 'Hours Worked', cost: 'Rate Cost', salary: 'Total Salary' },
-                ...updatedTableData.map(row => ({
-                    field: row.id,
-                    location: row.location,
-                    day: row.day,
-                    hour: row.hour,
-                    cost: row.cost,
-                    salary: row.salary
-                })),
-                {},
-                { field: '', location: '', day: '', hour: '', cost: 'Total Salary', salary: totalCost.toFixed(2) }
-            ];
-
-            const ws = XLSX.utils.json_to_sheet(combinedData);
-            XLSX.utils.book_append_sheet(wb, ws, 'Report');
+    
+            XLSX.utils.sheet_add_aoa(ws, [
+                ["№", "Location", "Day", "Hours Worked", "Rate", "Total Today"]
+            ], { origin: -1 });
+    
+            updatedTableData.forEach((row, index) => {
+                XLSX.utils.sheet_add_aoa(ws, [
+                    [
+                        row.id, 
+                        row.location, 
+                        row.day, 
+                        row.hour, 
+                        `$${row.cost}`, 
+                        `$${row.salary}`
+                    ]
+                ], { origin: -1 });
+            });
+    
+            // Add total salary row
+            XLSX.utils.sheet_add_aoa(ws, [
+                ["", "", "", "", "Total Salary:", `$${totalCost.toFixed(2)}`]
+            ], { origin: -1 });
+    
+            // Append the worksheet to the workbook
+            XLSX.utils.book_append_sheet(wb, ws, 'Invoice');
+    
+            // Write the workbook
             const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
             const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'report.xlsx';
+            a.download = 'invoice.xlsx';
             a.click();
             window.URL.revokeObjectURL(url);
         } catch (error) {
@@ -75,6 +95,9 @@ export default function Home() {
             setLoading(false);
         }
     };
+    
+    
+    
 
     const handleSendEmail = async () => {
         setSending(true);
@@ -161,11 +184,11 @@ export default function Home() {
                         <thead>
                             <tr className="bg-gray-100 text-gray-700 border-b border-gray-300">
                                 <th className="py-3 px-4 border-r">№</th>
-                                <th className="py-3 px-4 border-r">In which Site?</th>
-                                <th className="py-3 px-4 border-r">What date is it?</th>
-                                <th className="py-3 px-4 border-r">How many hours did you work?</th>
-                                <th className="py-3 px-4 border-r">What rate?</th>
-                                <th className="py-3 px-4 border-r">Total salary for today?</th>
+                                <th className="py-3 px-4 border-r">Location</th>
+                                <th className="py-3 px-4 border-r">Date</th>
+                                <th className="py-3 px-4 border-r">Hours Worked</th>
+                                <th className="py-3 px-4 border-r">Rate</th>
+                                <th className="py-3 px-4 border-r">Today Total</th>
                             </tr>
                         </thead>
                         <tbody>
