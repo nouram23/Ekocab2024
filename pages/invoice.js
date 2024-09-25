@@ -49,14 +49,14 @@ export default function Home() {
     
             // Adjust the merging to cover all the information
             ws["!merges"] = [
-                { s: { r: 0, c: 0 }, e: { r: 0, c: 4 } }, // Full Name
-                { s: { r: 1, c: 0 }, e: { r: 1, c: 4 } }, // ABN
-                { s: { r: 2, c: 0 }, e: { r: 2, c: 4 } }, // BSB
-                { s: { r: 3, c: 0 }, e: { r: 3, c: 4 } }, // Account Number
+                { s: { r: 0, c: 0 }, e: { r: 0, c: 5 } }, // Full Name
+                { s: { r: 1, c: 0 }, e: { r: 1, c: 5 } }, // ABN
+                { s: { r: 2, c: 0 }, e: { r: 2, c: 5 } }, // BSB
+                { s: { r: 3, c: 0 }, e: { r: 3, c: 5 } }, // Account Number
             ];
     
             XLSX.utils.sheet_add_aoa(ws, [
-                ["№", "Location", "Day", "Hours Worked", "Rate", "Total Today"]
+                ["№", "Location", "Day", "Hours", "Rate", "Total Today"]
             ], { origin: -1 });
     
             updatedTableData.forEach((row, index) => {
@@ -74,7 +74,7 @@ export default function Home() {
     
             // Add total salary row
             XLSX.utils.sheet_add_aoa(ws, [
-                ["", "", "", "", "Total Salary:", `$${totalCost.toFixed(2)}`]
+                ["", "", "", "",`My Total Salary: $${totalCost.toFixed(2)}`]
             ], { origin: -1 });
     
             // Append the worksheet to the workbook
@@ -127,6 +127,8 @@ export default function Home() {
         }
     };
 
+    const locations = ["Dasco-Willoughby", "Ashbury", "Office"];
+
     const handleAddRow = () => {
         setTableData(prev => [
             ...prev,
@@ -137,6 +139,7 @@ export default function Home() {
         setHours('');
         setCost('');
     };
+    
 
     const handleShowModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
@@ -164,7 +167,18 @@ export default function Home() {
             <div className="w-full bg-white rounded-2xl p-6 transition-transform duration-300 ">
                 <h2 className="text-2xl font-bold mb-4 text-gray-800">Stories that worked this week at Paragon</h2>
                 <div className="mb-4 flex flex-col md:flex-row md:gap-4">
-                    <input type="text" placeholder="Description of Jobs" value={description} onChange={e => setDescription(e.target.value)} className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
+                <select
+    value={description}
+    onChange={e => setDescription(e.target.value)}
+    className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+>
+    <option value="">Select Location</option>
+    {locations.map(location => (
+        <option key={location} value={location}>
+            {location}
+        </option>
+    ))}
+</select>
                     <input type="date" value={workedDay} onChange={e => setWorkedDay(e.target.value)} className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
                     <input type="number" placeholder="Hours" value={hours} onChange={e => setHours(e.target.value)} className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
                     <input type="number" placeholder="Rate Cost" value={cost} onChange={e => setCost(e.target.value)} className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
