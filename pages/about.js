@@ -8,7 +8,7 @@ const About = () => {
   const t = TeamLocale[`${l}`];
 
   return (
-    <div className="lg:px-36 lg:py-10 p-4 bg-black text-white">
+    <div className="lg:px-36 lg:py-10 p-4 bg-gradient-to-r from-[#1B2430] to-black text-white">
       <h2 className="text-center md:text-5xl text-3xl font-bold text-white mb-5">
         Бидний тухай
       </h2>

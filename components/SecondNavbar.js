@@ -81,7 +81,7 @@ const SecondNavbar = () => {
           <Link href="/">
             <div
               onClick={() => setShowSidebar(!showSidebar)}
-              className={`rounded-lg text-lg font-semibold leading-7 p-2 hover:bg-gray-50 ${
+              className={`rounded-lg text-base font-medium leading-7 p-2 hover:bg-gray-50 ${
                 router.pathname == "/"
                   ? "text-blue-600"
                   : "text-black"
@@ -93,7 +93,7 @@ const SecondNavbar = () => {
           <Link href="/about">
             <div
               onClick={() => setShowSidebar(!showSidebar)}
-              className={`rounded-lg text-lg font-semibold leading-7 p-2 hover:bg-gray-50 ${
+              className={`rounded-lg text-base font-medium leading-7 p-2 hover:bg-gray-50 ${
                 router.pathname == "/about"
                   ? "text-blue-600"
                   : "text-black"
@@ -105,7 +105,7 @@ const SecondNavbar = () => {
           <Link href="/questions/payment">
             <div
               onClick={() => setShowSidebar(!showSidebar)}
-              className={`rounded-lg text-lg font-semibold leading-7 p-2 hover:bg-gray-50 ${
+              className={`rounded-lg text-base font-medium leading-7 p-2 hover:bg-gray-50 ${
                 router.pathname == "/questions/payment"
                   ? "text-blue-600"
                   : "text-black"
@@ -117,9 +117,9 @@ const SecondNavbar = () => {
           <a href="tel:+97672440102">
             <div
               onClick={() => setShowSidebar(!showSidebar)}
-              className="rounded-lg text-2xl font-semibold leading-7 p-2 text-center mt-60 hover:bg-gray-50 text-black"
+              className="rounded-lg text-lg font-semibold leading-7 p-2 text-center mt-60 hover:bg-gray-50 text-black"
             >
-              📞 7244-0102
+              7244-0102
             </div>
           </a>
         </div>

@@ -1,12 +1,12 @@
 const NavbarLocale = [
     {
         ekocab: 'Экокаб ХХК',
-        home: 'Нүүр',
+        home: 'Home',
         driver: 'Жолооч',
         service: 'Бүтээгдэхүүн',
-        about: 'Бидний тухай',
+        about: 'About',
         admin: 'Админ хэсэг',
-        payment: 'Төлбөр баталгаажуулалт',
+        payment: 'Payment',
         services: [
             {
                 title: 'EkoCab',

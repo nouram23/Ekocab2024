@@ -51,7 +51,7 @@ const Payment = () => {
   };
 
   return (
-    <div className="lg:px-72 lg:py-20 p-4 bg-black text-white">
+    <div className="lg:px-72 lg:py-20 p-4  bg-gradient-to-r from-[#1B2430] to-black text-white">
       <div className='text-center px-10 py-5'>
         <p className='font-bold md:text-lg text-sm py-5' style={gradientStyle}>
           Төлбөр төлөх заавар • <span className='font-light italic'>{date}</span>

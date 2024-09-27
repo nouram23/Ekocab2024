@@ -146,7 +146,7 @@ export default function Home() {
     const handleCloseWarning = () => setShowWarning(false);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen  bg-gray-100 md:p-10">
+        <div className="flex flex-col items-center justify-center min-h-screen  bg-gradient-to-r from-[#a8fa4e] to-[#eb573a] bg-gray-100 md:p-10 p-2.5">
             <div className="">
                 <img src="https://i.ibb.co/DgGPXqV/paragon.png" alt="Logo" className="h-14" /> {/* Replace with your logo path or URL */}
             </div>
