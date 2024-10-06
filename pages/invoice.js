@@ -162,9 +162,9 @@ export default function Home() {
 
             {/* Advertising Section with Random Video */}
             <div className="w-full bg-gray-50 rounded-2xl shadow-md">
-                <div className='p-6'>
-                    <h2 className="text-4xl font-bold text-gray-800">Зар сурталжилгааны орон зай</h2>
-                </div>
+                {/* <div className='p-6'>
+                    <h2 className="text-xl sm:text-4xl font-bold text-gray-800">Зар сурталжилгааны орон зай</h2>
+                </div> */}
 
                 {/* Random Video */}
                 <div className="">
