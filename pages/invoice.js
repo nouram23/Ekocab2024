@@ -16,7 +16,7 @@ export default function Home() {
     const [accountNumber, setAccountNumber] = useState('');
 
     const [tableData, setTableData] = useState([
-   
+
     ]);
 
     const updatedTableData = tableData.map(row => ({
@@ -33,11 +33,11 @@ export default function Home() {
             setLoading(false);
             return;
         }
-    
+
         try {
             const wb = XLSX.utils.book_new();
             const ws = XLSX.utils.aoa_to_sheet([]);
-    
+
             // Add bank information to the sheet
             XLSX.utils.sheet_add_aoa(ws, [
                 [`Full Name: ${fullName}`],
@@ -46,7 +46,7 @@ export default function Home() {
                 [`Account Number: ${accountNumber}`],
                 [],
             ], { origin: "A1" });
-    
+
             // Adjust the merging to cover all the information
             ws["!merges"] = [
                 { s: { r: 0, c: 0 }, e: { r: 0, c: 5 } }, // Full Name
@@ -54,32 +54,32 @@ export default function Home() {
                 { s: { r: 2, c: 0 }, e: { r: 2, c: 5 } }, // BSB
                 { s: { r: 3, c: 0 }, e: { r: 3, c: 5 } }, // Account Number
             ];
-    
+
             XLSX.utils.sheet_add_aoa(ws, [
                 ["№", "Location", "Day", "Hours", "Rate", "Total Today"]
             ], { origin: -1 });
-    
+
             updatedTableData.forEach((row, index) => {
                 XLSX.utils.sheet_add_aoa(ws, [
                     [
-                        row.id, 
-                        row.location, 
-                        row.day, 
-                        row.hour, 
-                        `$${row.cost}`, 
+                        row.id,
+                        row.location,
+                        row.day,
+                        row.hour,
+                        `$${row.cost}`,
                         `$${row.salary}`
                     ]
                 ], { origin: -1 });
             });
-    
+
             // Add total salary row
             XLSX.utils.sheet_add_aoa(ws, [
-                ["", "", "", "",`My Total Salary: $${totalCost.toFixed(2)}`]
+                ["", "", "", "", `My Total Salary: $${totalCost.toFixed(2)}`]
             ], { origin: -1 });
-    
+
             // Append the worksheet to the workbook
             XLSX.utils.book_append_sheet(wb, ws, 'Invoice');
-    
+
             // Write the workbook
             const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
             const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
@@ -95,9 +95,9 @@ export default function Home() {
             setLoading(false);
         }
     };
-    
-    
-    
+
+
+
 
     const handleSendEmail = async () => {
         setSending(true);
@@ -127,6 +127,15 @@ export default function Home() {
         }
     };
 
+
+    const videoUrls = [
+        'https://www.youtube.com/embed/b57vWl42gK4', // Random example video
+        'https://www.youtube.com/embed/UTfXZCgpbB4', // Another example
+        'https://www.youtube.com/embed/hp0g-Y7p-AI'  // More video examples
+    ];
+
+    const randomVideoUrl = videoUrls[Math.floor(Math.random() * videoUrls.length)];
+
     const locations = ["Dasco-Willoughby", "Ashbury", "Office"];
 
     const handleAddRow = () => {
@@ -139,46 +148,74 @@ export default function Home() {
         setHours('');
         setCost('');
     };
-    
+
 
     const handleShowModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
     const handleCloseWarning = () => setShowWarning(false);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen  bg-gradient-to-r from-[#a8fa4e] to-[#eb573a] bg-gray-100 md:p-10 p-2.5">
+        <div className="flex flex-col items-center justify-center min-h-screen  bg-[#3C3D37] bg-gray-100 md:p-10 p-2.5">
             <div className="">
                 <img src="https://i.ibb.co/DgGPXqV/paragon.png" alt="Logo" className="h-14" /> {/* Replace with your logo path or URL */}
             </div>
-            <div className="w-full bg-white rounded-2xl p-6 mb-6 transition-transform duration-300">
+
+            {/* Advertising Section with Random Video */}
+            <div className="w-full bg-gray-50 rounded-2xl shadow-md">
+                <div className='p-6'>
+                    <h2 className="text-4xl font-bold text-gray-800">Зар сурталжилгааны орон зай</h2>
+                </div>
+
+                {/* Random Video */}
+                <div className="">
+                    <iframe
+                        // width="560"
+                        // height="415"
+                        src={randomVideoUrl}
+                        frameBorder="0"
+                        allowFullScreen
+                        className="w-full sm:h-[515px] h-[215px] shadow-lg"
+                    ></iframe>
+
+                </div>
+                <div className='p-6'>
+                    <h2 className="sm:text-3xl text-2xl font-bold mb-2 text-gray-800">САНХҮҮГИЙН ТАЙЛАН 3.0</h2>
+                    <p className="sm:text-lg text-xs text-gray-600">Сайтар боловсруулсан төлөвлөгөөгүйгээр хэчнээн мундаг, хичээл зүтгэлтэй хүн байлаа ч амжилтанд хүрэх хэцүү.</p>
+                    <p className="sm:text-lg text-xs text-gray-600 mt-4">Ихэнх хүмүүс хэмжээлшгүй баян болохыг хүсдэг ч хэрхэн, яаж мөнгө олох эсвэл олсон мөнгөө хэрхэн удирдахыг мэддэггүй ба сурах ч хүсэлгүй байх нь олон. Учир нь тэд санхүүгийн төлөвлөгөө гаргах болохоороо л маш их ажилтай, хэтэрхий завгүй гээд өөрийн бодит санхүүгийн байдалтай нүүр тулж чадалгүй хойшлуулсаар байдаг.</p>
+                    <p className="sm:text-lg text-xs text-gray-600 mt-4">Хэрэв та гэнэт олдсон тэр их мөнгийг удирдах чадвар, мэдлэггүй бол урт хугацаандаа тэр хөрөнгөнөөсөө өгөөж хүртэх боломж хомс юм.</p>
+                </div>
+            </div>
+
+
+            <div className="w-full bg-white shadow-md rounded-2xl p-6 mt-6 transition-transform duration-300">
                 <h1 className="text-2xl font-bold mb-2 text-gray-800">Full Name: {fullName || 'N/A'}</h1>
                 <h3 className="text-lg mb-2 text-gray-600">ABN: {abn || 'N/A'}</h3>
                 <h3 className="text-lg mb-2 text-gray-600">BSB: {bsb || 'N/A'}</h3>
                 <h3 className="text-lg mb-2 text-gray-600">Account number: {accountNumber || 'N/A'}</h3>
                 <button
-                        onClick={handleShowModal}
-                        className="w-full bg-[#61a165] text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-200"
-                    >
-                        Add Bank Information
-                    </button>
+                    onClick={handleShowModal}
+                    className="w-full bg-[#61a165] text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-200"
+                >
+                    Add Bank Information
+                </button>
             </div>
-            
 
-            <div className="w-full bg-white rounded-2xl p-6 transition-transform duration-300 ">
-                <h2 className="text-2xl font-bold mb-4 text-gray-800">Stories that worked this week at Paragon</h2>
+
+            <div className="w-full shadow-md bg-white rounded-2xl p-6 transition-transform duration-300 mt-6">
+                <h2 className="text-2xl font-bold mb-2 text-gray-800">Stories that worked this week at Paragon</h2>
                 <div className="mb-4 flex flex-col md:flex-row md:gap-4">
-                <select
-    value={description}
-    onChange={e => setDescription(e.target.value)}
-    className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
->
-    <option value="">Select Location</option>
-    {locations.map(location => (
-        <option key={location} value={location}>
-            {location}
-        </option>
-    ))}
-</select>
+                    <select
+                        value={description}
+                        onChange={e => setDescription(e.target.value)}
+                        className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+                    >
+                        <option value="">Select Location</option>
+                        {locations.map(location => (
+                            <option key={location} value={location}>
+                                {location}
+                            </option>
+                        ))}
+                    </select>
                     <input type="date" value={workedDay} placeholder='date' onChange={e => setWorkedDay(e.target.value)} className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
                     <input type="number" placeholder="Hours" value={hours} onChange={e => setHours(e.target.value)} className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
                     <input type="number" placeholder="Rate Cost" value={cost} onChange={e => setCost(e.target.value)} className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />

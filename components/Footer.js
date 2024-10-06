@@ -19,7 +19,7 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between items-center">
           <div className="w-full md:w-1/3 text-center md:text-left mb-2 md:mb-0">
             <p className="font-light md:text-xs text-xs text-[#7b7c89]">
-              &copy; 2024 Avaad-Yavii Service.
+              &copy; 2024 Erh LLC.
             </p>
           </div>
           <div className="w-full md:w-2/3 text-center md:text-right flex justify-center md:justify-end space-x-4 ">
