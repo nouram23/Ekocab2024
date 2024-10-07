@@ -33,9 +33,9 @@ const Footer = () => {
                 About
               </p>
             </Link>
-            <Link href="/questions/payment">
+            <Link href="/invoice">
               <p className="text-[#cacad2] hover:text-blue-400 text-sm font-normal transition-colors duration-300">
-                Payment
+                Invoice Maker
               </p>
             </Link>
           </div>
