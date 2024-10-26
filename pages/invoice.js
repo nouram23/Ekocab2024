@@ -232,7 +232,7 @@ export default function Home() {
                         </tbody>
                         <tfoot>
                             <tr className="bg-gray-100 text-gray-700 font-bold border-t border-gray-300">
-                                <td colSpan="5" className="py-3 px-4">Нийт цалин</td>
+                                <td colSpan="5" className="py-3 px-4">Total Salary</td>
                                 <td className="py-3 px-4 text-center text-green-600">${totalCost.toFixed(2)}</td>
                             </tr>
                         </tfoot>
@@ -281,7 +281,7 @@ export default function Home() {
                             <label className="block text-gray-700">Account Number:</label>
                             <input type="text" value={accountNumber} onChange={e => setAccountNumber(e.target.value)} className="border border-gray-300 p-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
                         </div>
-                        <button onClick={handleCloseModal} className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200">Хадгалах</button>
+                        <button onClick={handleCloseModal} className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200">Save</button>
                     </div>
                 </div>
             )}
