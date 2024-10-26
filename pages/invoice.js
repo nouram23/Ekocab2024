@@ -160,31 +160,7 @@ export default function Home() {
                 <img src="https://i.ibb.co/DgGPXqV/paragon.png" alt="Logo" className="h-14" /> {/* Replace with your logo path or URL */}
             </div>
 
-            {/* Advertising Section with Random Video */}
-            <div className="w-full bg-gray-50 rounded-2xl shadow-md">
-                {/* <div className='p-6'>
-                    <h2 className="text-xl sm:text-4xl font-bold text-gray-800">Зар сурталжилгааны орон зай</h2>
-                </div> */}
-
-                {/* Random Video */}
-                <div className="">
-                    <iframe
-                        // width="560"
-                        // height="415"
-                        src={randomVideoUrl}
-                        frameBorder="0"
-                        allowFullScreen
-                        className="w-full sm:h-[515px] h-[215px] shadow-lg"
-                    ></iframe>
-
-                </div>
-                <div className='p-6'>
-                    <h2 className="sm:text-3xl text-2xl font-bold mb-2 text-gray-800">САНХҮҮГИЙН ТАЙЛАН 3.0</h2>
-                    <p className="sm:text-lg text-xs text-gray-600">Сайтар боловсруулсан төлөвлөгөөгүйгээр хэчнээн мундаг, хичээл зүтгэлтэй хүн байлаа ч амжилтанд хүрэх хэцүү.</p>
-                    <p className="sm:text-lg text-xs text-gray-600 mt-4">Ихэнх хүмүүс хэмжээлшгүй баян болохыг хүсдэг ч хэрхэн, яаж мөнгө олох эсвэл олсон мөнгөө хэрхэн удирдахыг мэддэггүй ба сурах ч хүсэлгүй байх нь олон. Учир нь тэд санхүүгийн төлөвлөгөө гаргах болохоороо л маш их ажилтай, хэтэрхий завгүй гээд өөрийн бодит санхүүгийн байдалтай нүүр тулж чадалгүй хойшлуулсаар байдаг.</p>
-                    <p className="sm:text-lg text-xs text-gray-600 mt-4">Хэрэв та гэнэт олдсон тэр их мөнгийг удирдах чадвар, мэдлэггүй бол урт хугацаандаа тэр хөрөнгөнөөсөө өгөөж хүртэх боломж хомс юм.</p>
-                </div>
-            </div>
+      
 
 
             <div className="w-full bg-white shadow-md rounded-2xl p-6 mt-6 transition-transform duration-300">
