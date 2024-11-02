@@ -14,7 +14,7 @@ const TeamLocale = [
                 name: 'М.Билгүүн-Эрх',
                 role: 'Founder, Хөгжүүлэгч',
                 image: `${bilguunerh.src}`,
-                instagram: 'https://www.instagram.com/bilguunerh/',
+                instagram: 'https://www.instagram.com/nolimiterh/',
                 icon: `${instagram.src}`,
             },
             {
