@@ -46,7 +46,7 @@ const About = () => {
         <div className="text-center md:text-left">
           <h3 className="text-xl font-normal text-white mb-2">Mr. Bilguun-Erkh Myagmardorj</h3>
           <p className="text-white opacity-90 font-thin">
-            "Mr. Bilguun-Erkh Myagmardorj is the CEO of Erh Holding LLC, taking on the role since 2023. Bilguun-Erkh started her career as a Software Engineer and Intern at Ard Financial Group and Front-End Developer at the Nomin Holding LLC and the he has been with the Group for 2 years. and then he founded Erh Holding LLC. Bilguun-Erkh graduated from high school in the Nest Education It School and successfully graduated from the Pinecone Academy in Full Stack Developer."
+            "Mr. Bilguun-Erkh Myagmardorj is the CEO of Erh Holding LLC, taking on the role since 2023. Bilguun-Erkh started her career as a Software Engineer and Intern at Ard Financial Group and Front-End Developer at the Nomin Holding LLC and the he has been with the Group for 2 years. and then he founded Erh Holding LLC. Bilguun-Erkh graduated from high school in the Nest Education It School and successfully graduated from the Pinecone Academy in Full Stack Developer. Now he is studying and level up in Sydney Australia."
           </p>
           <div className="flex gap-3 mt-1 justify-center md:justify-start text-center">
   <p className="">
