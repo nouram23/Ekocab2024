@@ -10,13 +10,13 @@ import instagram from "../Assets/iga.png";
 const TeamLocale = [
     {
         members: [
-            {
-                name: 'М.Билгүүн-Эрх',
-                role: 'Founder, Хөгжүүлэгч',
-                image: `${bilguunerh.src}`,
-                instagram: 'https://www.instagram.com/nolimiterh/',
-                icon: `${instagram.src}`,
-            },
+            // {
+            //     name: 'М.Билгүүн-Эрх',
+            //     role: 'Founder, Хөгжүүлэгч',
+            //     image: `${bilguunerh.src}`,
+            //     instagram: 'https://www.instagram.com/nolimiterh/',
+            //     icon: `${instagram.src}`,
+            // },
             {
                 name: 'Н.Мягмардорж',
                 role: 'Зөвлөх',

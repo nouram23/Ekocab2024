@@ -263,7 +263,7 @@ const PricingDetail = () => {
                     Хаягийн мэдээлэл
                   </p>
                   <p className="text-[14px] text-input-text opacity-40">
-                    Таны оруулсан хаяг дээрээс жолооч таныг очиж авна
+                    Та газрын зураг дээр өөрийн хаягаа зоох хэрэгтэй.
                   </p>
                 </div>
 
@@ -272,7 +272,7 @@ const PricingDetail = () => {
                     googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
                     libraries={["places"]}
                   >
-                    <div className="w-full sm:w-full lg:w-1/2 mb-2 relative">
+                    {/* <div className="w-full sm:w-full lg:w-1/2 mb-2 relative">
                       <Autocomplete
                         onLoad={(autocomplete) =>
                           (autocompleteRef.current = autocomplete)
@@ -291,7 +291,7 @@ const PricingDetail = () => {
                           }}
                         />
                       </Autocomplete>
-                    </div>
+                    </div> */}
 
                     <div style={{ position: "relative", height: "400px" }}>
                       <GoogleMap

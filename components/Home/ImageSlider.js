@@ -14,7 +14,7 @@ const ImageSlider = () => {
   const slideImages = [
     {
       bgImage: `${image1.src}`,
-      url: "../services/airport",
+      url: "../pricing/0?tab=0",
       class1:
         "bg-gradient-to-l from-transparent lg:to-black/40 to-black/20 items-end",
       class2: "text-center",
