@@ -6,7 +6,7 @@ import SecondNavbar from './SecondNavbar'
 const Layout = ({ children }) => {
     return (
         <div className=''>
-        {/* <Navbar /> */}
+        <Navbar />
         <SecondNavbar />
         {children}
         <Footer/>

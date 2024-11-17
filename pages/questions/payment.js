@@ -41,7 +41,7 @@ const Payment = () => {
     textDecoration: 'underline', // Add underline for visibility
   };
 
-  // Function to copy text to clipboard and show toast
+
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text).then(() => {
       toast.success('Данс амжилттай хуулагдлаа.');
