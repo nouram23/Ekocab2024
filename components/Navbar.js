@@ -11,7 +11,7 @@ const Navbar = () => {
   const t = NavbarLocale[l];
   return (
 
-      <nav className="justify-between items-center flex-wrap w-full  text-sm lg:flex hidden fixed top-0 z-30">
+      <nav className="justify-between items-center flex-wrap w-full text-sm lg:flex hidden fixed top-0 z-30">
                  <div className="inline-flex items-center">
         <div className="relative h-40 w-44">
           <Link href="/">

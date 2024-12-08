@@ -31,27 +31,27 @@ const TeamLocale = [
                 instagram: '',
                 icon: `${instagram.src}`,
             }, 
-            {
-                name: 'Д.Ууганбаяр',
-                role: 'Back-End хөгжүүлэгч',
-                image: `${random.src}`,
-                instagram: '',
-                icon: `${instagram.src}`,
-            },
+            // {
+            //     name: 'Д.Ууганбаяр',
+            //     role: 'Back-End хөгжүүлэгч',
+            //     image: `${random.src}`,
+            //     instagram: '',
+            //     icon: `${instagram.src}`,
+            // },
             {
                 name: 'Г.Өсөхбаяр',
-                role: 'Ерөнхий эрхлэгч',
+                role: 'Монгол дахь хөтөч',
                 image: `${usukh6ayar.src}`,
                 instagram: 'https://www.instagram.com/usukh6ayar/',
                 icon: `${instagram.src}`,
             },
-            {
-                name: 'Г.Энхжин',
-                role: 'Хятад дахь хөтөч',
-                image: `${ariunerdene.src}`,
-                instagram: 'https://www.instagram.com/enjyy0215/',
-                icon: `${instagram.src}`,
-            }, 
+            // {
+            //     name: 'Г.Энхжин',
+            //     role: 'Хятад дахь хөтөч',
+            //     image: `${ariunerdene.src}`,
+            //     instagram: 'https://www.instagram.com/enjyy0215/',
+            //     icon: `${instagram.src}`,
+            // }, 
         ]
     }
 ]

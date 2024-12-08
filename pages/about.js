@@ -44,9 +44,14 @@ const About = () => {
       <img src="https://i.ibb.co/Bf7YGmP/ceo1.jpg" alt="ceo" className="md:w-72 md:h-72 w-44 rounded-2xl md:mr-6 mb-4 md:mb-0" />
 
         <div className="text-center md:text-left">
-          <h3 className="text-xl font-normal text-white mb-2">Bilguun-Erkh Myagmardorj</h3>
+          <h3 className="text-xl font-semibold text-white mb-2">Bilguun-Erkh Myagmardorj</h3>
           <p className="text-white opacity-90 font-thin">
-            "Bilguun-Erkh Myagmardorj has been the CEO of Erh Holding LLC since 2023. He began his career as a Software Engineer Intern at Ard Financial Group and later worked as a Front-End Developer at Nomin Holding LLC, where he spent two years. Subsequently, he founded Erh Holding LLC.Bilguun-Erkh completed his high school education at Nest Education IT School and graduated from Pinecone Academy as a Full Stack Developer.He is currently furthering his studies in Sydney, Australia."
+            {/* "Bilguun-Erkh Myagmardorj has been the CEO of Erh Holding LLC since 2023. He began his career as a Software Engineer Intern at Ard Financial Group and later worked as a Front-End Developer at Nomin Holding LLC, where he spent two years. Subsequently, he founded Erh Holding LLC. Bilguun-Erkh completed his high school education at Nest Education IT School and graduated from Pinecone Academy as a Full Stack Developer. He is currently furthering his studies in Sydney, Australia." */}
+            
+
+            Мягмардоржын Билгүүн-Эрх нь 2023 оноос хойш "Эрх Холдинг" ХХК-ийг чиглүүлэн ажиллаж байна. Тэрээр ажлын гараагаа "Ард Санхүүгийн Нэгдэл"-д программ хангамжийн инженерийн дадлагажигчаар эхэлж, дараа нь "Номин Холдинг" ХХК-д хоёр жилийн турш Front-End Developer-оор ажилласан туршлагатай. Үүний дараа өөрийн компани болох "Эрх Холдинг" ХХК-ийг үүсгэн байгуулж, амжилттай удирдаж байна.
+
+Билгүүн-Эрх ахлах сургуулийн боловсролоо "Nest Education IT School"-д амжилттай эзэмшиж, дараа нь "Pinecone Academy"-г дүүргэн MERN Stack хөгжүүлэгчээр мэргэшсэн. Одоогоор тэрээр Австралийн Сидней хотод хэлний мэдлэгээ сайжруулан, цаашдын боловсролын чиглэлд өөрийгөө хөгжүүлэхээр суралцаж байна.
           </p>
           <div className="flex gap-3 mt-1 justify-center md:justify-start text-center">
   <p className="">
@@ -56,17 +61,17 @@ const About = () => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      facebook
+      Facebook
     </a>
   </p>
   <p className="">
     <a
-      href="https://www.instagram.com/nolimiterh/"
+      href="https://www.instagram.com/yuhlhnichlbishyajhelehnichl/"
       style={instagramLinkStyle}
       target="_blank"
       rel="noopener noreferrer"
     >
-      instagram
+      Instagram
     </a>
   </p>
 </div>
