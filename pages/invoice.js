@@ -136,7 +136,7 @@ export default function Home() {
 
     const randomVideoUrl = videoUrls[Math.floor(Math.random() * videoUrls.length)];
 
-    const locations = ["Dasco - Willoughby", "Deicorp - Rosebery", "MN Builders - Ashbury", "Westbourne - Greensquare", "Office"];
+    const locations = ["Dasco - Willoughby", "Deicorp - Rosebery", "MN Builders - Ashbury", "Westbourne - Greensquare", "Office", "Mosman", "The Rock’s", "Sydney Uni", "Mosman", "Glebe"];
 
     const handleAddRow = () => {
         setTableData(prev => [
