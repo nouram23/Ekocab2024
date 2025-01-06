@@ -66,7 +66,7 @@ const About = () => {
   </p>
   <p className="">
     <a
-      href="https://www.instagram.com/yuhlhnichlbishyajhelehnichl/"
+      href="https://www.instagram.com/21.05.25/"
       style={instagramLinkStyle}
       target="_blank"
       rel="noopener noreferrer"

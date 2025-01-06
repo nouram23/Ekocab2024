@@ -1,7 +1,7 @@
 import bilguunerh from "../Assets/bilguunerh.png";
 import oyunbold from "../Assets/oyunbold.png";
 import myagmardorj from "../Assets/myagmardorj.png";
-import usukh6ayar from "../Assets/eazy.png";
+import usukh6ayar from "../Assets/soliv.png";
 import ariunerdene from "../Assets/ariunerdene.png";
 import random from "../Assets/random.png";
 import instagram from "../Assets/iga.png";
@@ -28,7 +28,7 @@ const TeamLocale = [
                 name: 'М.Оюунболд',
                 role: 'Sydney дахь хөтөч',
                 image: `${oyunbold.src}`,
-                instagram: '',
+                instagram: 'https://www.instagram.com/echo.ymu/',
                 icon: `${instagram.src}`,
             }, 
             // {
