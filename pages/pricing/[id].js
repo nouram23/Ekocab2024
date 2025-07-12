@@ -423,9 +423,9 @@ const PricingDetail = () => {
                   rows={5}
                 />
 
-                <div className="md:col-span-2 flex justify-end p-2">
+                  <div className="md:col-span-2 flex justify-end p-2">
                   <button
-                    onClick={() => handleSubmit()}
+                      onClick={() => handleSubmit()}
                     className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 hover:shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-105 font-semibold"
                   >
                     Урьдчилсан захиалга өгөх

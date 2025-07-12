@@ -25,7 +25,7 @@ const About = () => {
   return (
     <div className="lg:px-36 lg:py-10 p-4 bg-gradient-to-b from-[#344980] to-black text-white">
       <h2 className="text-center md:text-5xl text-3xl font-bold text-white mb-5">
-      Management
+      Бидний тухай
       </h2>
       {/* <p className="text-white  text-center font-extralight opacity-90">
         Экокаб ХХК нь 2023 оны 2-р сараас эхлэн нисэх онгоцны буудал хүргэх,
@@ -44,7 +44,7 @@ const About = () => {
       <img src="https://i.ibb.co/Bf7YGmP/ceo1.jpg" alt="ceo" className="md:w-72 md:h-72 w-44 rounded-2xl md:mr-6 mb-4 md:mb-0" />
 
         <div className="text-center md:text-left">
-          <h3 className="text-xl font-semibold text-white mb-2">Bilguun-Erkh Myagmardorj</h3>
+          <h3 className="text-xl font-semibold text-white mb-2">Мягмардоржын Билгүүн-Эрх</h3>
           <p className="text-white opacity-90 font-thin">
             {/* "Bilguun-Erkh Myagmardorj has been the CEO of Erh Holding LLC since 2023. He began his career as a Software Engineer Intern at Ard Financial Group and later worked as a Front-End Developer at Nomin Holding LLC, where he spent two years. Subsequently, he founded Erh Holding LLC. Bilguun-Erkh completed his high school education at Nest Education IT School and graduated from Pinecone Academy as a Full Stack Developer. He is currently furthering his studies in Sydney, Australia." */}
             
@@ -66,7 +66,7 @@ const About = () => {
   </p>
   <p className="">
     <a
-      href="https://www.instagram.com/21.05.25/"
+      href="https://www.instagram.com/gdarierh/"
       style={instagramLinkStyle}
       target="_blank"
       rel="noopener noreferrer"

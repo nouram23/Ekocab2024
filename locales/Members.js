@@ -21,7 +21,7 @@ const TeamLocale = [
                 name: 'Н.Мягмардорж',
                 role: 'Зөвлөх',
                 image: `${myagmardorj.src}`,
-                instagram: 'https://www.instagram.com/bilguunerh/',
+                instagram: 'https://www.instagram.com/gdarierh/',
                 icon: `${instagram.src}`,
             },
             {
