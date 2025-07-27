@@ -136,7 +136,7 @@ export default function Home() {
 
     const randomVideoUrl = videoUrls[Math.floor(Math.random() * videoUrls.length)];
 
-    const locations = ["Wollongong Ellen", "Wollongong Flinders", "Penrith", "Wyong", "Gosford"];
+    const locations = ["Lead Irmuun", "Lead Oyunbileg"];
 
     const handleAddRow = () => {
         setTableData(prev => [
@@ -157,7 +157,7 @@ export default function Home() {
     return (
         <div className="flex flex-col items-center justify-center  bg-[#3C3D37] bg-gray-100 md:p-10 p-2.5">
             <div className="">
-                <img src="https://i.ibb.co/B5WgbnNT/fortune-logo.png" alt="Logo" className="h-28" /> {/* Replace with your logo path or URL */}
+                <h1 className='text-2xl'>Temuulen's Company</h1>
             </div>
 
       
@@ -244,7 +244,7 @@ export default function Home() {
                         {loading ? 'Generating...' : 'Excel - рүү татах'}
                     </button>
                     <button onClick={handleSendEmail} disabled={sending} className={`px-6 py-3 rounded-lg text-white font-semibold ${sending ? 'bg-blue-500 cursor-not-allowed' : 'bg-[#000] hover:bg-blue-700 transition duration-200'}`}>
-                        {sending ? 'Sending...' : 'Send to Fortune@gmail.com soon..'}
+                        {sending ? 'Sending...' : 'Send to Gtrc.civil@gmail.com soon..'}
                     </button>
                 </div>
             </div>
