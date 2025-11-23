@@ -3,6 +3,7 @@ import * as XLSX from 'xlsx';
 import Image from "next/image";
 import EkocabLogo from "../Assets/comingsoon.png";
 import Tyeco from "../Assets/tyeco.png";
+import Aj from "../Assets/lte.png";
 import Link from "next/link";
 
 export default function Home() {
@@ -142,7 +143,7 @@ export default function Home() {
 
     const randomVideoUrl = videoUrls[Math.floor(Math.random() * videoUrls.length)];
 
-    const locations = ["Lead Jacob", "Lead Erh"];
+    const locations = ["Ipswich Lte Structures QLD",];
 
     const handleAddRow = () => {
         setTableData(prev => [
@@ -161,22 +162,26 @@ export default function Home() {
     const handleCloseWarning = () => setShowWarning(false);
 
     return (
-        <div className="flex flex-col items-center justify-center  bg-[#3e3c3c] md:p-10 p-2.5">
-            <div className="">
-                
-                <div className="relative h-12 w-44">
-            <Link href="/">
-            <Image src={Tyeco} layout="fill" alt="Ekocab Logo" />
-            </Link>
-          </div>
-            </div>
+        <div className="flex flex-col items-center justify-center  bg-[#3e3c3c] md:p-5 p-2.5">
+<div className="flex justify-center">
+  <Link href="/">
+    <Image
+      src={Aj}
+      alt="LTE Logo"
+      width={280}
+      height={60}
+      priority
+      className="object-contain"
+    />
+  </Link>
+</div>
 
       
 
 
-            <div className="w-full bg-white shadow-md rounded-2xl p-6 mt-6 transition-transform duration-300">
-                <h1 className="text-2xl font-bold mb-2 text-gray-800">Full Name: {fullName || 'N/A'}</h1>
-                <h3 className="text-lg mb-2 text-gray-600">Address: {abn || 'N/A'}</h3>
+            <div className="w-full bg-white shadow-md p-6  transition-transform duration-300">
+                <h1 className="text-2xl font-bold mb-2 text-gray-800">Нэр: {fullName || 'N/A'}</h1>
+                <h3 className="text-lg mb-2 text-gray-600">Хаяг: {abn || 'N/A'}</h3>
                 <h3 className="text-lg mb-2 text-gray-600">BSB: {bsb || 'N/A'}</h3>
                 <h3 className="text-lg mb-2 text-gray-600">Account number: {accountNumber || 'N/A'}</h3>
                 <h3 className="text-lg mb-2 text-gray-600">Abn Number: {abnNumber || 'N/A'}</h3>
@@ -184,20 +189,20 @@ export default function Home() {
                     onClick={handleShowModal}
                     className="w-full bg-[#000000] text-white px-4 py-2 rounded-md transition duration-200"
                 >
-                    Add your bank detail
+             Банкны мэдээллээ оруулна уу
                 </button>
             </div>
 
 
-            <div className="w-full shadow-md bg-white rounded-2xl p-6 transition-transform duration-300 mt-6">
-                <h2 className="text-xl font-bold mb-2 text-gray-800">Stories worked on this week</h2>
+            <div className="w-full shadow-md bg-white p-6 transition-transform duration-300">
+                <h2 className="text-xl font-bold mb-2 text-gray-800">Энэ долоо хоногийн ажлууд</h2>
                 <div className="mb-4 flex flex-col md:flex-row md:gap-4">
                     <select
                         value={description}
                         onChange={e => setDescription(e.target.value)}
                         className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                     >
-                        <option>Select Site Location</option>
+                        <option>Ажлын байршил сонгоно уу</option>
                         {locations.map(location => (
                             <option key={location} value={location}>
                                 {location}
@@ -205,15 +210,15 @@ export default function Home() {
                         ))}
                     </select>
                     <input type="date" value={workedDay} placeholder="date" onChange={e => setWorkedDay(e.target.value)} className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
-                    <input type="number" placeholder="Time" value={hours} onChange={e => setHours(e.target.value)} className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
-                    <input type="number" placeholder="Your Rate" value={cost} onChange={e => setCost(e.target.value)} className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
+                    <input type="number" placeholder="Цаг" value={hours} onChange={e => setHours(e.target.value)} className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
+                    <input type="number" placeholder="Цагийн хөлс" value={cost} onChange={e => setCost(e.target.value)} className="border border-gray-300 p-3 rounded-md flex-1 mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
                 </div>
                 <div className="flex flex-col md:flex-row md:gap-4">
                     <button
                         onClick={handleAddRow}
                         className="w-full bg-[#000000] text-white px-4 py-2 rounded-md mb-2 md:mb-0transition duration-200"
                     >
-                        Add Timesheet
+                    Ажлын цаг нэмэх
                     </button>
                 </div>
 
@@ -223,11 +228,11 @@ export default function Home() {
                         <thead>
                             <tr className="bg-gray-100 text-gray-700 border-b border-gray-300">
                                 <th className="py-3 px-4 border-r">№</th>
-                                <th className="py-3 px-4 border-r">Location</th>
-                                <th className="py-3 px-4 border-r">Date</th>
-                                <th className="py-3 px-4 border-r">Hours Worked</th>
-                                <th className="py-3 px-4 border-r">Rate</th>
-                                <th className="py-3 px-4 border-r">Today Total</th>
+                                <th className="py-3 px-4 border-r">Байршил</th>
+                                <th className="py-3 px-4 border-r">Огноо</th>
+                                <th className="py-3 px-4 border-r">Ажилласан цаг</th>
+                                <th className="py-3 px-4 border-r">Цагийн хөлс</th>
+                                <th className="py-3 px-4 border-r">Өдрийн нийт</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -244,20 +249,18 @@ export default function Home() {
                         </tbody>
                         <tfoot>
                             <tr className="bg-gray-100 text-gray-700 font-bold border-t border-gray-300">
-                                <td colSpan="5" className="py-3 px-4">Total Salary</td>
+                                <td colSpan="5" className="py-3 px-4">Нийт цалин</td>
                                 <td className="py-3 px-4 text-center text-green-600">${totalCost.toFixed(2)}</td>
                             </tr>
                         </tfoot>
                     </table>
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-between mt-4 gap-4">
+                <div className="flex flex-col md:flex-row justify-end mt-4 gap-4">
                     <button onClick={handleDownload} disabled={loading} className={`px-6 py-3 rounded-lg text-white font-semibold ${loading ? 'bg-gray-500 cursor-not-allowed' : 'bg-[#61a165] hover:bg-green-700 transition duration-200'}`}>
-                        {loading ? 'Generating...' : 'Download to Excel'}
+                        {loading ? 'Generating...' : 'Excel рүү хадгалах'}
                     </button>
-                    <button onClick={handleSendEmail} disabled={sending} className={`px-6 py-3 rounded-lg text-white font-semibold ${sending ? 'bg-blue-500 cursor-not-allowed' : 'bg-[#000] hover:bg-blue-700 transition duration-200'}`}>
-                        {sending ? 'Sending...' : 'Send to Team@tyeco.com.au'}
-                    </button>
+ 
                 </div>
             </div>
 
@@ -276,13 +279,13 @@ export default function Home() {
             {showModal && (
                 <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
                     <div className="bg-white p-3 rounded-lg max-w-sm w-full">
-                        <h2 className="text-xl font-bold">Add Bank Detail and Information</h2>
+                        <h2 className="text-xl font-bold">Банкны мэдээлэл оруулах</h2>
                         <div className="mb-4">
-                            <label className="block text-gray-700">Full Name:</label>
+                            <label className="block text-gray-700">Бүтэн нэр:</label>
                             <input type="text" value={fullName} onChange={e => setFullName(e.target.value)} className="border border-gray-300 p-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
                         </div>
                         <div className="mb-4">
-                            <label className="block text-gray-700">Address:</label>
+                            <label className="block text-gray-700">Хаяг:</label>
                             <input type="text" value={abn} onChange={e => setAbn(e.target.value)} className="border border-gray-300 p-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
                         </div>
                         <div className="mb-4">
@@ -299,7 +302,7 @@ export default function Home() {
                         <label className="block text-gray-700">Abn Number:</label>
                             <input type="text" value={abnNumber} onChange={e => setAbnNumber(e.target.value)} className="border border-gray-300 p-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
                             </div>
-                        <button onClick={handleCloseModal} className="bg-black text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200">Save</button>
+                        <button onClick={handleCloseModal} className="bg-black text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200">Хадгалах</button>
                     </div>
                 </div>
             )}
