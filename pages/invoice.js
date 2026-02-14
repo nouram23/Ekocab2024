@@ -161,7 +161,7 @@ export default function Home() {
     const handleCloseWarning = () => setShowWarning(false);
 
     return (
-        <div className="flex flex-col items-center justify-center  bg-[#3e3c3c] bg-gray-100 md:p-10 p-2.5">
+        <div className="flex flex-col items-center justify-center  bg-[#3e3c3c] md:p-10 p-2.5">
             <div className="">
                 
                 <div className="relative h-12 w-44">
@@ -176,7 +176,7 @@ export default function Home() {
 
             <div className="w-full bg-white shadow-md rounded-2xl p-6 mt-6 transition-transform duration-300">
                 <h1 className="text-2xl font-bold mb-2 text-gray-800">Full Name: {fullName || 'N/A'}</h1>
-                <h3 className="text-lg mb-2 text-gray-600">ABN: {abn || 'N/A'}</h3>
+                <h3 className="text-lg mb-2 text-gray-600">Address: {abn || 'N/A'}</h3>
                 <h3 className="text-lg mb-2 text-gray-600">BSB: {bsb || 'N/A'}</h3>
                 <h3 className="text-lg mb-2 text-gray-600">Account number: {accountNumber || 'N/A'}</h3>
                 <h3 className="text-lg mb-2 text-gray-600">Abn Number: {abnNumber || 'N/A'}</h3>
@@ -282,7 +282,7 @@ export default function Home() {
                             <input type="text" value={fullName} onChange={e => setFullName(e.target.value)} className="border border-gray-300 p-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
                         </div>
                         <div className="mb-4">
-                            <label className="block text-gray-700">ABN:</label>
+                            <label className="block text-gray-700">Address:</label>
                             <input type="text" value={abn} onChange={e => setAbn(e.target.value)} className="border border-gray-300 p-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200" />
                         </div>
                         <div className="mb-4">
