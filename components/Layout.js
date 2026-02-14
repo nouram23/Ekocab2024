@@ -1,16 +1,21 @@
-import React, { useContext, useEffect } from 'react'
+'use client'
+
+import React from 'react'
 import Navbar from './Navbar'
-import Footer from './Footer';
+import Footer from './Footer'
 import SecondNavbar from './SecondNavbar'
+import { usePathname } from 'next/navigation'
 
 const Layout = ({ children }) => {
-    return (
-        <div className=''>
-        <Navbar />
-        <SecondNavbar />
-        {children}
-        <Footer/>
-        </div>
+  const pathname = usePathname()
+
+  return (
+    <div>
+      <Navbar />
+      <SecondNavbar />
+      {children}
+      {pathname !== '/invoice' && <Footer />}
+    </div>
   )
 }
 
